@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Saúde Conectada</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Activity Login -->
+    <string name="edit_text_user">usuario</string>
+    <string name="edit_text_password">senha</string>
+    <string name="button_entrar">entrar</string>
+    <string name="button_cadastrar">cadastre-se</string>
+    <string name="text_view_msg_error_login_1">usuário/senha não podem ser nulos</string>
+    <string name="text_view_msg_error_login_2">usuário e/ou senha inválido(s)</string>
+
+    <!-- Opções fale conosco -->
+    <string-array name="fale_conosco">
+        <item>Reclamação</item>
+        <item>Informação</item>
+        <item>Elogio</item>
+        <item>Sugestão</item>
+    </string-array>
+    <string name="title_activity_rede">Map</string>
+</resources>

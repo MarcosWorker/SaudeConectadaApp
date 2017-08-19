@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_video"
+            android:icon="@drawable/ic_video"
+            android:title="Vídeos" />
+        <item
+            android:id="@+id/nav_noticia"
+            android:icon="@drawable/ic_noticia"
+            android:title="Notícias" />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum"
+            android:title="Fórum" />
+        <item
+            android:id="@+id/nav_rede"
+            android:icon="@drawable/ic_rede"
+            android:title="Rede" />
+        <item
+            android:id="@+id/nav_profissional"
+            android:icon="@drawable/ic_profissional"
+            android:title="Profissional" />
+        <item
+            android:id="@+id/nav_fale_conosco"
+            android:icon="@drawable/ic_fale_conosco"
+            android:title="Fale Conosco" />
+    </group>
+
+    <item android:title="Informação">
+        <menu>
+            <item
+                android:id="@+id/nav_ajuda"
+                android:icon="@drawable/ic_ajuda"
+                android:title="Ajuda" />
+            <item
+                android:id="@+id/nav_sobre"
+                android:icon="@drawable/ic_sobre"
+                android:title="Sobre" />
+        </menu>
+    </item>
+
+</menu>
