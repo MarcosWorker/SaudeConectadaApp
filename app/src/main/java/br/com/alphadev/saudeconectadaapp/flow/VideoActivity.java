@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.activity;
+package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.content.Intent;
 import android.os.Bundle;

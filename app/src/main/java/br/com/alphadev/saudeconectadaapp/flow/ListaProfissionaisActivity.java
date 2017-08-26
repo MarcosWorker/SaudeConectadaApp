@@ -1,18 +1,14 @@
-package br.com.alphadev.saudeconectadaapp.activity;
+package br.com.alphadev.saudeconectadaapp.flow;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.adapter.AdapterProfissional;
-import br.com.alphadev.saudeconectadaapp.bean.Profissional;
-import br.com.alphadev.saudeconectadaapp.fragment.ProfissionalFragment;
+import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterProfissional;
+import br.com.alphadev.saudeconectadaapp.model.bean.Profissional;
 
 public class ListaProfissionaisActivity extends AppCompatActivity {
 

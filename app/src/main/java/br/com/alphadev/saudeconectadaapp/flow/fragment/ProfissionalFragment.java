@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.fragment;
+package br.com.alphadev.saudeconectadaapp.flow.fragment;
 
 
 import android.app.ProgressDialog;
@@ -9,14 +9,12 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,13 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.activity.ListaProfissionaisActivity;
-import br.com.alphadev.saudeconectadaapp.activity.NoticiaActivity;
-import br.com.alphadev.saudeconectadaapp.adapter.AdapterItemNoticia;
-import br.com.alphadev.saudeconectadaapp.adapter.AdapterProfissional;
-import br.com.alphadev.saudeconectadaapp.bean.Noticia;
-import br.com.alphadev.saudeconectadaapp.bean.Profissional;
-import br.com.alphadev.saudeconectadaapp.util.ConexaoWeb;
+import br.com.alphadev.saudeconectadaapp.flow.ListaProfissionaisActivity;
+import br.com.alphadev.saudeconectadaapp.model.bean.Profissional;
+import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 /**
  * A simple {@link Fragment} subclass.

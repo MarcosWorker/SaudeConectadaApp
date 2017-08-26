@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.fragment;
+package br.com.alphadev.saudeconectadaapp.flow.fragment;
 
 
 import android.app.ProgressDialog;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.util.ConexaoWeb;
+import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 /**
  * A simple {@link Fragment} subclass.

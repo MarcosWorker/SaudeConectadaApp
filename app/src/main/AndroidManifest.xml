@@ -23,11 +23,11 @@
             android:value="AIzaSyCdQvaK_RXTFCfhDkk2eWoZn1DCky3geTM" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".flow.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".flow.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,13 +35,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.NoticiaActivity" />
-        <activity android:name=".activity.VideoActivity" />
-        <activity android:name=".activity.CadastrarActivity" />
+        <activity android:name=".flow.NoticiaActivity" />
+        <activity android:name=".flow.VideoActivity" />
+        <activity android:name=".flow.CadastrarActivity" />
         <activity
-            android:name=".activity.RedeActivity"
+            android:name=".flow.RedeActivity"
             android:label="@string/title_activity_rede" />
-        <activity android:name=".activity.ListaProfissionaisActivity"></activity>
+        <activity android:name=".flow.ListaProfissionaisActivity"></activity>
     </application>
 
 </manifest>

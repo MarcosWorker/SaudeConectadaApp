@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.adapter;
+package br.com.alphadev.saudeconectadaapp.model.adapter;
 
 import android.app.Activity;
 import android.view.View;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.bean.Noticia;
+import br.com.alphadev.saudeconectadaapp.model.bean.Noticia;
 
 public class AdapterItemNoticia extends BaseAdapter {
     private final List<Noticia> noticias;

@@ -1,10 +1,7 @@
-package br.com.alphadev.saudeconectadaapp.activity;
+package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,14 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.fragment.AjudaFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.FaleConoscoFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.ForumFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.NoticiaFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.ProfissionalFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.RedeFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.SobreFragment;
-import br.com.alphadev.saudeconectadaapp.fragment.VideoFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.AjudaFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.FaleConoscoFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.ForumFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.NoticiaFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.ProfissionalFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.RedeFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.SobreFragment;
+import br.com.alphadev.saudeconectadaapp.flow.fragment.VideoFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

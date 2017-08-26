@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.fragment;
+package br.com.alphadev.saudeconectadaapp.flow.fragment;
 
 
 import android.app.ProgressDialog;
@@ -24,10 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.activity.VideoActivity;
-import br.com.alphadev.saudeconectadaapp.adapter.AdapterItemVideo;
-import br.com.alphadev.saudeconectadaapp.bean.Video;
-import br.com.alphadev.saudeconectadaapp.util.ConexaoWeb;
+import br.com.alphadev.saudeconectadaapp.flow.VideoActivity;
+import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterItemVideo;
+import br.com.alphadev.saudeconectadaapp.model.bean.Video;
+import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 /**
  * A simple {@link Fragment} subclass.

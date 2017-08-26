@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.adapter;
+package br.com.alphadev.saudeconectadaapp.model.adapter;
 
 import android.app.Activity;
 import android.view.View;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.bean.Profissional;
+import br.com.alphadev.saudeconectadaapp.model.bean.Profissional;
 
 /**
  * Created by marcos on 04/06/2017.

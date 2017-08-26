@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.fragment;
+package br.com.alphadev.saudeconectadaapp.flow.fragment;
 
 
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import br.com.alphadev.saudeconectadaapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ForumFragment extends Fragment {
+public class SobreFragment extends Fragment {
 
-    public ForumFragment() {
+    public SobreFragment() {
         // Required empty public constructor
     }
 
@@ -22,7 +22,7 @@ public class ForumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_forum, container, false);
+        View view = inflater.inflate(R.layout.fragment_sobre, container, false);
         return view;
     }
 

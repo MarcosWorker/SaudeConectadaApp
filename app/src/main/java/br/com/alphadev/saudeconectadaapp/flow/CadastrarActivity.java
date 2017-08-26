@@ -1,5 +1,5 @@
 
-package br.com.alphadev.saudeconectadaapp.activity;
+package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,13 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.adapter.AdapterItemNoticia;
-import br.com.alphadev.saudeconectadaapp.bean.Conselho;
-import br.com.alphadev.saudeconectadaapp.bean.Especialidade;
-import br.com.alphadev.saudeconectadaapp.bean.Noticia;
-import br.com.alphadev.saudeconectadaapp.bean.Rede;
-import br.com.alphadev.saudeconectadaapp.fragment.NoticiaFragment;
-import br.com.alphadev.saudeconectadaapp.util.ConexaoWeb;
+import br.com.alphadev.saudeconectadaapp.model.bean.Conselho;
+import br.com.alphadev.saudeconectadaapp.model.bean.Especialidade;
+import br.com.alphadev.saudeconectadaapp.model.bean.Rede;
+import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 public class CadastrarActivity extends Activity {
 

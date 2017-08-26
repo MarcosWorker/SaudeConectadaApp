@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.activity;
+package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -9,25 +9,18 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.bean.Noticia;
-import br.com.alphadev.saudeconectadaapp.bean.Profissional;
-import br.com.alphadev.saudeconectadaapp.bean.Rede;
-import br.com.alphadev.saudeconectadaapp.util.ConexaoWeb;
+import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 public class LoginActivity extends Activity {
 

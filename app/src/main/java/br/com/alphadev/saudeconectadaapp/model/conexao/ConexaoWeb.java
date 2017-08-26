@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.util;
+package br.com.alphadev.saudeconectadaapp.model.conexao;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

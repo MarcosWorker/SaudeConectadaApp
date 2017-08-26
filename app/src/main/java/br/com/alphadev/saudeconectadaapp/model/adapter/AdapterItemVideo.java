@@ -1,4 +1,4 @@
-package br.com.alphadev.saudeconectadaapp.adapter;
+package br.com.alphadev.saudeconectadaapp.model.adapter;
 
 import android.app.Activity;
 import android.view.View;
@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.bean.Video;
+import br.com.alphadev.saudeconectadaapp.model.bean.Video;
 
 public class AdapterItemVideo extends BaseAdapter {
 
