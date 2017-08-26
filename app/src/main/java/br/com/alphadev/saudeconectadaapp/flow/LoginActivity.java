@@ -113,7 +113,7 @@ public class LoginActivity extends Activity {
 
                     if(emails.contains(edtEmail.getText().toString()) &&
                             numeros.contains(edtNumero.getText().toString())){
-                        intent=new Intent(LoginActivity.this,MainActivity.class);
+                        intent=new Intent(LoginActivity.this,MenuActivity.class);
                         startActivity(intent);
                         finish();
                     }else{

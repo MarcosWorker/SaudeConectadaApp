@@ -22,23 +22,10 @@
             android:id="@+id/nav_profissional"
             android:icon="@drawable/ic_profissional"
             android:title="Profissional" />
-        <item
-            android:id="@+id/nav_fale_conosco"
-            android:icon="@drawable/ic_fale_conosco"
-            android:title="Fale Conosco" />
+        <!--<item-->
+            <!--android:id="@+id/nav_fale_conosco"-->
+            <!--android:icon="@drawable/ic_fale_conosco"-->
+            <!--android:title="Fale Conosco" />-->
     </group>
-
-    <item android:title="Informação">
-        <menu>
-            <item
-                android:id="@+id/nav_ajuda"
-                android:icon="@drawable/ic_ajuda"
-                android:title="Ajuda" />
-            <item
-                android:id="@+id/nav_sobre"
-                android:icon="@drawable/ic_sobre"
-                android:title="Sobre" />
-        </menu>
-    </item>
 
 </menu>

@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_fale_conosco"
+        android:orderInCategory="100"
+        android:title="@string/fale_conosco"
+        app:showAsAction="never" />
 </menu>

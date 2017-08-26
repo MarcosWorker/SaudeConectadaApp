@@ -17,11 +17,11 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void run() {
                 try {
-                    sleep(0);
+                    sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
             }
