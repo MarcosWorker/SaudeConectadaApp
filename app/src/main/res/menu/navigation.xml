@@ -4,28 +4,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_video"
-            android:icon="@drawable/ic_video"
+            android:icon="@drawable/ic_videos_48px"
             android:title="Vídeos" />
         <item
             android:id="@+id/nav_noticia"
-            android:icon="@drawable/ic_noticia"
+            android:icon="@drawable/ic_noticias_48px"
             android:title="Notícias" />
         <item
             android:id="@+id/nav_forum"
-            android:icon="@drawable/ic_forum"
+            android:icon="@drawable/ic_forum_48px"
             android:title="Fórum" />
         <item
             android:id="@+id/nav_rede"
-            android:icon="@drawable/ic_rede"
+            android:icon="@drawable/ic_rede_48px"
             android:title="Rede" />
         <item
             android:id="@+id/nav_profissional"
-            android:icon="@drawable/ic_profissional"
+            android:icon="@drawable/ic_profissional_48px"
             android:title="Profissional" />
-        <!--<item-->
-            <!--android:id="@+id/nav_fale_conosco"-->
-            <!--android:icon="@drawable/ic_fale_conosco"-->
-            <!--android:title="Fale Conosco" />-->
+
     </group>
 
 </menu>
