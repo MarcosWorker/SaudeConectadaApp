@@ -9,6 +9,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +34,7 @@ import br.com.alphadev.saudeconectadaapp.model.bean.Especialidade;
 import br.com.alphadev.saudeconectadaapp.model.bean.Rede;
 import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
-public class CadastrarActivity extends Activity {
+public class CadastrarActivity extends AppCompatActivity {
 
     private Button btSalvar;
     private Intent intent;
@@ -58,11 +61,24 @@ public class CadastrarActivity extends Activity {
     private Conselho conselho;
     private ConnectivityManager connMgr;
     private NetworkInfo networkInfo;
+    private Toolbar myToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar);
+
+        myToolbar = (Toolbar) findViewById(R.id.toolbar_cadastrar);
+        myToolbar.setTitle("");
+        myToolbar.setNavigationIcon(R.mipmap.ic_voltar);
+        setSupportActionBar(myToolbar);
+
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         edtNome = (EditText) findViewById(R.id.edt_nome_cadastro);
         edtEmail = (EditText) findViewById(R.id.edt_email_cadastro);

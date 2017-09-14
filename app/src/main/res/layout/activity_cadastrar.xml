@@ -3,18 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="br.com.alphadev.saudeconectadaapp.flow.CadastrarActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        >
+
+        <ImageView
+            android:id="@+id/yourlogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:src="@mipmap/ic_launcher_saude_conectada" />
+
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/toolbar_cadastrar">
 
         <TextView
             android:layout_width="match_parent"
@@ -48,8 +64,7 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
-                android:paddingLeft="5dp"
+                android:gravity="left"
                 android:text="Nome:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -59,7 +74,7 @@
                 android:id="@+id/edt_nome_cadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="32dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_circle"
                 android:fontFamily="serif-monospace"
@@ -79,7 +94,7 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="E-mail:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -89,10 +104,10 @@
                 android:id="@+id/edt_email_cadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="33dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="serif-monospace"
                 android:background="@drawable/border_circle"
+                android:fontFamily="serif-monospace"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="5dp"
                 android:textSize="16dp" />
@@ -108,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="Telefone:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -118,7 +133,7 @@
                 android:id="@+id/edt_telefone_cadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="34dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/border_circle"
                 android:fontFamily="serif-monospace"
@@ -137,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="N° inscrição:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -167,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="Especialidade:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -193,7 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="Conselho"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -218,7 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="Unidade:"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp"
@@ -238,7 +253,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/spinner_unidade"
             android:layout_margin="5dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/borda_botao"
             android:gravity="center"
             android:onClick="cadastrarOnClick"
             android:text="@string/button_cadastrar"

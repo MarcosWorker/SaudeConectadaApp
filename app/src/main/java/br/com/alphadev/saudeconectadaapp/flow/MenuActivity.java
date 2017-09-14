@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import br.com.alphadev.saudeconectadaapp.R;
@@ -20,12 +22,25 @@ import br.com.alphadev.saudeconectadaapp.flow.fragment.VideoFragment;
 public class MenuActivity extends AppCompatActivity {
 
     private FragmentManager fm;
+    private Toolbar myToolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        myToolbar = (Toolbar) findViewById(R.id.toolbar_menu);
+        myToolbar.setTitle("");
+        myToolbar.setNavigationIcon(R.mipmap.ic_voltar);
+        setSupportActionBar(myToolbar);
+
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         fm = getFragmentManager();
 

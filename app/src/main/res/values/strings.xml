@@ -12,8 +12,8 @@
     <!-- Activity Login -->
     <string name="edit_text_user">usuario</string>
     <string name="edit_text_password">senha</string>
-    <string name="button_entrar">entrar</string>
-    <string name="button_cadastrar">cadastre-se</string>
+    <string name="button_entrar">Entrar</string>
+    <string name="button_cadastrar">Cadastre-se</string>
     <string name="text_view_msg_error_login_1">usuário/senha não podem ser nulos</string>
     <string name="text_view_msg_error_login_2">usuário e/ou senha inválido(s)</string>
 

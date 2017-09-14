@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinner_unidade"
                 android:layout_margin="5dp"
-                android:background="@color/colorPrimaryDark"
+                android:background="@drawable/borda_botao"
                 android:gravity="center"
                 android:onClick="cadastrarOnClick"
                 android:text="Buscar Profissional"
