@@ -24,9 +24,7 @@
 
         <activity
             android:name=".flow.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".flow.NoticiaActivity" />
         <activity android:name=".flow.VideoActivity" />
         <activity android:name=".flow.CadastrarActivity" />
@@ -40,14 +38,15 @@
             </intent-filter>
         </activity>
         <activity
-        android:name=".flow.RedeActivity"
-        android:label="@string/title_activity_rede" />
+            android:name=".flow.RedeActivity"
+            android:label="@string/title_activity_rede" />
         <activity android:name=".flow.ListaProfissionaisActivity" />
         <activity
             android:name=".flow.MenuActivity"
-            android:label="@string/title_activity_menu">
-
-        </activity>
+            android:label="@string/title_activity_menu" />
+        <activity android:name=".flow.RespostasForumActivity" />
+        <activity android:name=".flow.AdicionarTopicoActivity" />
+        <activity android:name=".flow.AdicionaRespostaActivity"></activity>
     </application>
 
 </manifest>
