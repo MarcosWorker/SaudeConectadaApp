@@ -7,9 +7,9 @@ package br.com.alphadev.saudeconectadaapp.model.bean;
 public class ForumResposta {
 
     private int id;
-    private String nome;
-    private ForumTopico forumTopico;
-    private Profissional profissional;
+    private String resposta;
+    private int idtopico;
+    private int idprofissional;
 
     public ForumResposta() {
     }
@@ -22,32 +22,32 @@ public class ForumResposta {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getResposta() {
+        return resposta;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setResposta(String resposta) {
+        this.resposta = resposta;
     }
 
-    public ForumTopico getForumTopico() {
-        return forumTopico;
+    public int getIdtopico() {
+        return idtopico;
     }
 
-    public void setForumTopico(ForumTopico forumTopico) {
-        this.forumTopico = forumTopico;
+    public void setIdtopico(int idtopico) {
+        this.idtopico = idtopico;
     }
 
-    public Profissional getProfissional() {
-        return profissional;
+    public int getIdprofissional() {
+        return idprofissional;
     }
 
-    public void setProfissional(Profissional profissional) {
-        this.profissional = profissional;
+    public void setIdprofissional(int idprofissional) {
+        this.idprofissional = idprofissional;
     }
 
     @Override
     public String toString() {
-        return nome;
+        return resposta;
     }
 }

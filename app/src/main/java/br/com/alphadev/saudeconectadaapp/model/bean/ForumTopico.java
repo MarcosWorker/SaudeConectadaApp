@@ -9,9 +9,8 @@ import java.util.List;
 public class ForumTopico {
 
     private int id;
-    private String nome;
-    private List<ForumResposta> respostas;
-    private Profissional profissional;
+    private String topico;
+    private int idprofissional;
 
     public ForumTopico() {
     }
@@ -24,32 +23,24 @@ public class ForumTopico {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTopico() {
+        return topico;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTopico(String topico) {
+        this.topico = topico;
     }
 
-    public List<ForumResposta> getRespostas() {
-        return respostas;
+    public int getIdprofissional() {
+        return idprofissional;
     }
 
-    public void setRespostas(List<ForumResposta> respostas) {
-        this.respostas = respostas;
-    }
-
-    public Profissional getProfissional() {
-        return profissional;
-    }
-
-    public void setProfissional(Profissional profissional) {
-        this.profissional = profissional;
+    public void setIdprofissional(int idprofissional) {
+        this.idprofissional = idprofissional;
     }
 
     @Override
     public String toString() {
-        return nome;
+        return topico;
     }
 }

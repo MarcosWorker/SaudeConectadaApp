@@ -27,15 +27,9 @@ public class ListaProfissionaisActivity extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar_lista_profissioanais);
         myToolbar.setTitle("");
-        myToolbar.setNavigationIcon(R.mipmap.ic_voltar);
+
         setSupportActionBar(myToolbar);
 
-        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         try {
 

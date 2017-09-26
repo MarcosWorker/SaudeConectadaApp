@@ -23,15 +23,7 @@ public class NoticiaActivity extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.toolbar_noticia);
         myToolbar.setTitle("");
-        myToolbar.setNavigationIcon(R.mipmap.ic_voltar);
         setSupportActionBar(myToolbar);
-
-        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         intent = getIntent();
         bundle = intent.getExtras();
