@@ -82,6 +82,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.action_sair:
+                Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
+                return true;
             case R.id.action_fale_conosco:
                 fm.beginTransaction().replace(R.id.content, new FaleConoscoFragment()).commit();
                 return true;

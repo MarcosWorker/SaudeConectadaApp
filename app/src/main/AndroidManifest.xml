@@ -24,12 +24,20 @@
 
         <activity
             android:name=".flow.LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".flow.NoticiaActivity" />
-        <activity android:name=".flow.VideoActivity" />
-        <activity android:name=".flow.CadastrarActivity" />
+        <activity
+            android:name=".flow.NoticiaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flow.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flow.CadastrarActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".flow.SplashScreenActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,13 +47,19 @@
         </activity>
         <activity
             android:name=".flow.RedeActivity"
-            android:label="@string/title_activity_rede" />
+            android:label="@string/title_activity_rede"
+            android:screenOrientation="portrait" />
         <activity android:name=".flow.ListaProfissionaisActivity" />
         <activity
             android:name=".flow.MenuActivity"
-            android:label="@string/title_activity_menu" />
-        <activity android:name=".flow.RespostasForumActivity" />
-        <activity android:name=".flow.AdicionarTopicoActivity" />
+            android:label="@string/title_activity_menu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flow.RespostasForumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flow.AdicionarTopicoActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".flow.AdicionaRespostaActivity"></activity>
     </application>
 
