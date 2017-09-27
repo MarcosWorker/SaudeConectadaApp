@@ -13,8 +13,9 @@
         android:layout_alignEnd="@+id/list_respostas_forum"
         android:layout_alignStart="@+id/list_respostas_forum"
         android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:textColor="#000"
+        android:gravity="left"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         android:textSize="20dp" />
 
     <ListView

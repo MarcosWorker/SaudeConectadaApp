@@ -52,7 +52,6 @@ public class RespostasForumActivity extends AppCompatActivity {
         idtopico = bundle.getInt("idtopico");
 
         tituloTopico = (TextView) findViewById(R.id.titulo_topico);
-        tituloTopico.setText(bundle.getString("topico"));
 
         textVazio = (TextView) findViewById(R.id.text_vazio);
         textVazio.setVisibility(View.INVISIBLE);
@@ -129,6 +128,9 @@ public class RespostasForumActivity extends AppCompatActivity {
                     listView.setAdapter(adapter);
                     if (respostas.isEmpty()) {
                         textVazio.setVisibility(View.VISIBLE);
+                    }else {
+                        tituloTopico.setText(bundle.getString("topico")+"\n"+
+                        respostas.size()+" Respostas.");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

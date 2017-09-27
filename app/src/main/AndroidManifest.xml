@@ -60,7 +60,8 @@
         <activity
             android:name=".flow.AdicionarTopicoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".flow.AdicionaRespostaActivity"></activity>
+        <activity android:name=".flow.AdicionaRespostaActivity" />
+        <activity android:name=".flow.PerfilActivity"></activity>
     </application>
 
 </manifest>

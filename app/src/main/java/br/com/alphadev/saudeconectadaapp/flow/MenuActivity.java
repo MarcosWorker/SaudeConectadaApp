@@ -2,6 +2,7 @@ package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +26,7 @@ public class MenuActivity extends AppCompatActivity {
 
     private FragmentManager fm;
     private Toolbar myToolbar;
+    private Intent intent = null;
 
 
     @Override
@@ -43,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         SharedPreferences prefs = getSharedPreferences("login", 0);
-        Toast.makeText(this, "Meu id é "+prefs.getString("idLogado",null), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Meu id é " + prefs.getString("idLogado", null), Toast.LENGTH_SHORT).show();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -84,6 +86,11 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
+            case R.id.action_perfil:
+                intent = new Intent(MenuActivity.this, PerfilActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.action_settings:
                 Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
                 return true;
