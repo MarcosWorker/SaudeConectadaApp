@@ -38,6 +38,7 @@ public class RespostasForumActivity extends AppCompatActivity {
     private Bundle bundle = null;
     private int idProfissional;
     private TextView textVazio = null;
+    private TextView tituloTopico = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,10 @@ public class RespostasForumActivity extends AppCompatActivity {
         bundle = intent.getExtras();
         idProfissional = bundle.getInt("id");
 
-        textVazio = (TextView)findViewById(R.id.text_vazio);
+        tituloTopico = (TextView) findViewById(R.id.titulo_topico);
+        tituloTopico.setText(bundle.getString("topico"));
+
+        textVazio = (TextView) findViewById(R.id.text_vazio);
         textVazio.setVisibility(View.INVISIBLE);
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -106,21 +110,21 @@ public class RespostasForumActivity extends AppCompatActivity {
                         forumResposta.setResposta(jsonObject.getString("resposta"));
                         forumResposta.setIdprofissional(jsonObject.getInt("id_profissional"));
                         forumResposta.setIdtopico(jsonObject.getInt("id_topico"));
-                        if(idProfissional==forumResposta.getIdprofissional()){
+                        if (idProfissional == forumResposta.getIdprofissional()) {
                             respostas.add(forumResposta);
                         }
                     }
 
-                    listView = (ListView) findViewById(R.id.list_forum);
+                    listView = (ListView) findViewById(R.id.list_respostas_forum);
 
                     adapter = new ArrayAdapter<ForumResposta>(RespostasForumActivity.this,
                             android.R.layout.simple_list_item_1, respostas);
 
                     listView.setAdapter(adapter);
-                    if(respostas.isEmpty()){
+                    if (respostas.isEmpty()) {
                         textVazio.setVisibility(View.VISIBLE);
-                    }else{
-                        Toast.makeText(RespostasForumActivity.this, "Tamanho da lista "+respostas.size(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RespostasForumActivity.this, "Tamanho da lista " + respostas.size(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

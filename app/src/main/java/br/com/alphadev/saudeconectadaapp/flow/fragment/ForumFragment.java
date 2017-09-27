@@ -130,6 +130,7 @@ public class ForumFragment extends Fragment {
                             intent = new Intent(view.getContext(), RespostasForumActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putInt("id", topico.getId());
+                            bundle.putString("topico",topico.getTopico());
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
