@@ -2,6 +2,7 @@ package br.com.alphadev.saudeconectadaapp.model.bean;
 
 public class Profissional {
 
+    private String id;
     private String nome;
     private String email;
     private String telefone;
@@ -10,7 +11,8 @@ public class Profissional {
     private String especialidade;
     private String unidade;
 
-    public Profissional(String nome, String email, String telefone, String conselho, String numInscricao, String especialidade, String unidade) {
+    public Profissional(String id, String nome, String email, String telefone, String conselho, String numInscricao, String especialidade, String unidade) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -20,8 +22,16 @@ public class Profissional {
         this.unidade = unidade;
     }
 
-    public Profissional( ) {
+    public Profissional() {
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {

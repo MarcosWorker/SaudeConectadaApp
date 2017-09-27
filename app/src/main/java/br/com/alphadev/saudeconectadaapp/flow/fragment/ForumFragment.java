@@ -129,9 +129,9 @@ public class ForumFragment extends Fragment {
                             topico = topicos.get(position);
                             intent = new Intent(view.getContext(), RespostasForumActivity.class);
                             Bundle bundle = new Bundle();
-                            bundle.putInt("idprofissional",topico.getIdprofissional());
+                            bundle.putInt("idprofissional", topico.getIdprofissional());
                             bundle.putInt("idtopico", topico.getId());
-                            bundle.putString("topico",topico.getTopico());
+                            bundle.putString("topico", topico.getTopico());
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -146,5 +146,6 @@ public class ForumFragment extends Fragment {
             }
         }
     }
+
 
 }

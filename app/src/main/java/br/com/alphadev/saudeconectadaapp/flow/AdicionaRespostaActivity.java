@@ -28,7 +28,7 @@ public class AdicionaRespostaActivity extends AppCompatActivity {
     private Intent intent = null;
     private Bundle bundle = null;
     private EditText edtresposta;
-    private String url;
+    private String url=null;
     private String parametros = null;
 
     @Override
@@ -65,8 +65,6 @@ public class AdicionaRespostaActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(AdicionaRespostaActivity.this, "Impossível salvar texto vazio.", Toast.LENGTH_SHORT).show();
                 }
-
-
 
             }
         });

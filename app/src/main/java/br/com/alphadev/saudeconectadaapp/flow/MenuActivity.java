@@ -1,14 +1,16 @@
 package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.FragmentManager;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import br.com.alphadev.saudeconectadaapp.R;
@@ -39,6 +41,9 @@ public class MenuActivity extends AppCompatActivity {
         fm.beginTransaction().replace(R.id.content, new VideoFragment()).commit();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        SharedPreferences prefs = getSharedPreferences("login", 0);
+        Toast.makeText(this, "Meu id é "+prefs.getString("idLogado",null), Toast.LENGTH_SHORT).show();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -83,7 +88,31 @@ public class MenuActivity extends AppCompatActivity {
                 Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_sair:
-                Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+                alertDialogBuilder.setMessage("Deseja realmente sair?");
+                alertDialogBuilder.setPositiveButton("Sim",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                SharedPreferences prefs = getSharedPreferences("login", 0);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean("estaLogado", false);
+                                editor.putString("idLogado", null);
+                                editor.commit();
+                                finish();
+                            }
+                        });
+
+                alertDialogBuilder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setCanceledOnTouchOutside(true);
+                alertDialog.show();
                 return true;
             case R.id.action_fale_conosco:
                 fm.beginTransaction().replace(R.id.content, new FaleConoscoFragment()).commit();

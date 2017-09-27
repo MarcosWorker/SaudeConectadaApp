@@ -1,6 +1,7 @@
 package br.com.alphadev.saudeconectadaapp.flow.fragment;
 
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +9,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,10 +49,6 @@ public class ProfissionalFragment extends Fragment {
     private ArrayAdapter<String> spinnerArrayAdapter;
     private Button buscar;
     private Intent intent;
-    private Bundle bundleEspecialidade;
-    private Bundle bundleUnidade;
-    private Bundle bundleLista;
-
 
     public ProfissionalFragment() {
         // Required empty public constructor
@@ -141,7 +137,9 @@ public class ProfissionalFragment extends Fragment {
                     for (int i = 0; i < json.length(); i++) {
                         //...
                         JSONObject jsonObject = (JSONObject) json.get(i);
-                        profissional = new Profissional(jsonObject.getString("nome"),
+                        profissional = new Profissional(
+                                jsonObject.getString("id"),
+                                jsonObject.getString("nome"),
                                 jsonObject.getString("email"),
                                 jsonObject.getString("telefone"),
                                 jsonObject.getString("conselho"),
