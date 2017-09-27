@@ -8,23 +8,24 @@
 
     <TextView
         android:id="@+id/titulo_topico"
-        android:textSize="20dp"
-        android:textColor="#000"
-        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/list_respostas_forum"
-        android:layout_alignStart="@+id/list_respostas_forum" />
+        android:layout_alignStart="@+id/list_respostas_forum"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="20dp" />
 
     <ListView
         android:id="@+id/list_respostas_forum"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/titulo_topico"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@+id/titulo_topico">
-    </ListView>
+        android:layout_marginTop="16dp"></ListView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fb_resposta_forum"
@@ -36,15 +37,16 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="21dp"
         android:layout_marginEnd="25dp"
-        android:src="@android:drawable/ic_menu_add"
-        app:backgroundTint="@color/colorPrimary" />
+        android:src="@mipmap/ic_add_forum"
+        />
+
     <TextView
         android:id="@+id/text_vazio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
         android:gravity="center"
-        android:textSize="20dp"
         android:text="Não existem respostas para esse tópico"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="20dp" />
 
 </RelativeLayout>

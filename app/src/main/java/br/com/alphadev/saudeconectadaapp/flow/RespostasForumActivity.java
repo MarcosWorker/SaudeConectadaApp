@@ -37,6 +37,7 @@ public class RespostasForumActivity extends AppCompatActivity {
     private String url = null;
     private Bundle bundle = null;
     private int idProfissional;
+    private int idtopico;
     private TextView textVazio = null;
     private TextView tituloTopico = null;
 
@@ -47,7 +48,8 @@ public class RespostasForumActivity extends AppCompatActivity {
 
         intent = getIntent();
         bundle = intent.getExtras();
-        idProfissional = bundle.getInt("id");
+        idProfissional = bundle.getInt("idprofissional");
+        idtopico = bundle.getInt("idtopico");
 
         tituloTopico = (TextView) findViewById(R.id.titulo_topico);
         tituloTopico.setText(bundle.getString("topico"));
@@ -72,7 +74,11 @@ public class RespostasForumActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(RespostasForumActivity.this, AdicionaRespostaActivity.class);
+                intent.putExtra("idprofissional", idProfissional);
+                intent.putExtra("topico", bundle.getString("topico"));
+                intent.putExtra("idtopico",idtopico);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -123,8 +129,6 @@ public class RespostasForumActivity extends AppCompatActivity {
                     listView.setAdapter(adapter);
                     if (respostas.isEmpty()) {
                         textVazio.setVisibility(View.VISIBLE);
-                    } else {
-                        Toast.makeText(RespostasForumActivity.this, "Tamanho da lista " + respostas.size(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

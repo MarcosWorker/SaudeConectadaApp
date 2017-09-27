@@ -45,7 +45,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="21dp"
         android:layout_marginEnd="25dp"
-        android:src="@android:drawable/ic_menu_add"
-        app:backgroundTint="@color/colorPrimary" />
+        android:src="@mipmap/ic_save_forum"
+        />
 
 </RelativeLayout>
