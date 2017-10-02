@@ -11,6 +11,7 @@ public class ForumTopico {
     private int id;
     private String topico;
     private int idprofissional;
+    private int qtdRespostas;
 
     public ForumTopico() {
     }
@@ -39,8 +40,12 @@ public class ForumTopico {
         this.idprofissional = idprofissional;
     }
 
-    @Override
-    public String toString() {
-        return topico;
+    public int getQtdRespostas() {
+        return qtdRespostas;
     }
+
+    public void setQtdRespostas(int qtdRespostas) {
+        this.qtdRespostas = qtdRespostas;
+    }
+
 }

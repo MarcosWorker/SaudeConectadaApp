@@ -23,13 +23,13 @@
             android:src="@mipmap/ic_add_forum"
             />
 
-        <ListView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/list_forum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp">
 
-        </ListView>
+        </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 
 </FrameLayout>

@@ -10,10 +10,12 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,7 +29,7 @@ import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
 import br.com.alphadev.saudeconectadaapp.flow.AdicionarTopicoActivity;
-import br.com.alphadev.saudeconectadaapp.flow.RespostasForumActivity;
+import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterForumTopico;
 import br.com.alphadev.saudeconectadaapp.model.bean.ForumTopico;
 import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
@@ -46,8 +48,12 @@ public class ForumFragment extends Fragment {
     private ArrayAdapter adapter = null;
     private FloatingActionButton floatingActionButton = null;
     private Intent intent = null;
-    private String url;
+    private String url1 = null;
+    private String url2 = null;
     private View view = null;
+    private RecyclerView recyclerView = null;
+    private RecyclerView.LayoutManager mLayoutManager = null;
+    private AdapterForumTopico adapterForumTopico = null;
 
 
     @Override
@@ -56,16 +62,7 @@ public class ForumFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_forum, container, false);
 
-        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        //se existe conexão
-        if (networkInfo != null && networkInfo.isConnected()) {
-            url = "http://saudeconectada.eletrocontroll.com.br/ForumWbSv/processaListarTopico";
-            new ForumFragment.Post().execute(url);
-
-        } else {
-            Toast.makeText(getActivity(), "verifique sua internet", Toast.LENGTH_SHORT).show();
-        }
+        consultaBase();
 
         floatingActionButton = (FloatingActionButton) view.findViewById(R.id.fb_add_forum);
 
@@ -80,7 +77,27 @@ public class ForumFragment extends Fragment {
         return view;
     }
 
-    private class Post extends AsyncTask<String, Void, String> {
+    private void consultaBase() {
+        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        //se existe conexão
+        if (networkInfo != null && networkInfo.isConnected()) {
+            url1 = "http://saudeconectada.eletrocontroll.com.br/ForumWbSv/processaListarTopico";
+            url2 = "http://saudeconectada.eletrocontroll.com.br/ForumWbSv/processaListarResposta";
+            new ForumFragment.Post().execute(url1, url2);
+
+        } else {
+            Toast.makeText(getActivity(), "verifique sua internet", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        consultaBase();
+    }
+
+    private class Post extends AsyncTask<String, Void, List<String>> {
 
         ProgressDialog load;
 
@@ -93,49 +110,52 @@ public class ForumFragment extends Fragment {
         }
 
         @Override
-        protected String doInBackground(String... urls) {
-            String resultado = null;
-            resultado = ConexaoWeb.getDados(urls[0]);
-            return resultado;
+        protected List<String> doInBackground(String... urls) {
+            List<String> resultados = null;
+            String resultado1 = ConexaoWeb.getDados(urls[0]);
+            String resultado2 = ConexaoWeb.getDados(urls[1]);
+            resultados = new ArrayList<>();
+            resultados.add(0, resultado1);
+            resultados.add(1, resultado2);
+            return resultados;
         }
 
         @Override
-        protected void onPostExecute(String resultado) {
+        protected void onPostExecute(List<String> resultados) {
             load.dismiss();
-            if (resultado != null) {
+            if (resultados.get(0) != null) {
+                Log.d("R1", resultados.get(0));
+                Log.d("R2", resultados.get(1));
                 try {
-                    JSONArray json = new JSONArray(resultado);
+                    JSONArray jsonTopicos = new JSONArray(resultados.get(0));
+                    JSONArray jsonRespostas = new JSONArray(resultados.get(1));
+                    int qtdR = 0;
                     topicos = new ArrayList<>();
-                    for (int i = 0; i < json.length(); i++) {
-                        JSONObject jsonObject = (JSONObject) json.get(i);
+                    for (int i = 0; i < jsonTopicos.length(); i++) {
+                        JSONObject jsonTopico = (JSONObject) jsonTopicos.get(i);
                         forumTopico = new ForumTopico();
-                        forumTopico.setId(jsonObject.getInt("id"));
-                        forumTopico.setTopico(jsonObject.getString("topico"));
-                        forumTopico.setIdprofissional(jsonObject.getInt("id_profissional"));
+                        forumTopico.setId(jsonTopico.getInt("id"));
+                        forumTopico.setTopico(jsonTopico.getString("topico"));
+                        forumTopico.setIdprofissional(jsonTopico.getInt("id_profissional"));
+                        if (jsonRespostas != null) {
+                            for (int r = 0; r < jsonRespostas.length(); r++) {
+                                JSONObject jsonResposta = (JSONObject) jsonRespostas.get(r);
+                                if (jsonResposta.getInt("id_topico") == forumTopico.getId()) {
+                                    qtdR++;
+                                }
+                            }
+                        }
+                        forumTopico.setQtdRespostas(qtdR);
                         topicos.add(forumTopico);
                     }
 
-                    listView = (ListView) view.findViewById(R.id.list_forum);
+                    recyclerView = (RecyclerView) view.findViewById(R.id.list_forum);
 
-                    adapter = new ArrayAdapter<ForumTopico>(view.getContext(),
-                            android.R.layout.simple_list_item_1, topicos);
-
-                    listView.setAdapter(adapter);
-
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            ForumTopico topico = new ForumTopico();
-                            topico = topicos.get(position);
-                            intent = new Intent(view.getContext(), RespostasForumActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putInt("idprofissional", topico.getIdprofissional());
-                            bundle.putInt("idtopico", topico.getId());
-                            bundle.putString("topico", topico.getTopico());
-                            intent.putExtras(bundle);
-                            startActivity(intent);
-                        }
-                    });
+                    adapterForumTopico = new AdapterForumTopico(topicos);
+                    mLayoutManager = new LinearLayoutManager(view.getContext());
+                    recyclerView.setLayoutManager(mLayoutManager);
+                    recyclerView.setAdapter(adapterForumTopico);
+                    Log.d("QTD", String.valueOf(topicos.size()));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -144,6 +164,8 @@ public class ForumFragment extends Fragment {
             } else {
                 Toast.makeText(getActivity(), "erro no carregamento da lista", Toast.LENGTH_LONG).show();
             }
+
+
         }
     }
 
