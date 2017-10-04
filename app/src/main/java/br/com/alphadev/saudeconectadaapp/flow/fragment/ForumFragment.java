@@ -137,16 +137,15 @@ public class ForumFragment extends Fragment {
                         forumTopico.setId(jsonTopico.getInt("id"));
                         forumTopico.setTopico(jsonTopico.getString("topico"));
                         forumTopico.setIdprofissional(jsonTopico.getInt("id_profissional"));
-                        if (jsonRespostas != null) {
                             for (int r = 0; r < jsonRespostas.length(); r++) {
                                 JSONObject jsonResposta = (JSONObject) jsonRespostas.get(r);
                                 if (jsonResposta.getInt("id_topico") == forumTopico.getId()) {
                                     qtdR++;
                                 }
                             }
-                        }
                         forumTopico.setQtdRespostas(qtdR);
                         topicos.add(forumTopico);
+                        qtdR=0;
                     }
 
                     recyclerView = (RecyclerView) view.findViewById(R.id.list_forum);
@@ -155,7 +154,7 @@ public class ForumFragment extends Fragment {
                     mLayoutManager = new LinearLayoutManager(view.getContext());
                     recyclerView.setLayoutManager(mLayoutManager);
                     recyclerView.setAdapter(adapterForumTopico);
-                    Log.d("QTD", String.valueOf(topicos.size()));
+//                    Log.d("QTD", String.valueOf(topicos.size()));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -115,7 +115,7 @@ public class RespostasForumActivity extends AppCompatActivity {
                         forumResposta.setResposta(jsonObject.getString("resposta"));
                         forumResposta.setIdprofissional(jsonObject.getInt("id_profissional"));
                         forumResposta.setIdtopico(jsonObject.getInt("id_topico"));
-                        if (idProfissional == forumResposta.getIdprofissional()) {
+                        if (idtopico == forumResposta.getIdtopico()) {
                             respostas.add(forumResposta);
                         }
                     }

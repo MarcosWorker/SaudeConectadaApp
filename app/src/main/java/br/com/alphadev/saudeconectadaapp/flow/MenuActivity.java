@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         SharedPreferences prefs = getSharedPreferences("login", 0);
-        Toast.makeText(this, "Meu id é " + prefs.getString("idLogado", null), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Meu id é " + prefs.getString("idLogado", null), Toast.LENGTH_SHORT).show();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

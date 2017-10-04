@@ -1,16 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.alphadev.saudeconectadaapp.flow.PerfilActivity">
 
-    <TextView
-        android:layout_width="368dp"
-        android:layout_height="551dp"
-        android:text="Tela Perfil"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp" />
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:background="@color/colorPrimary">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/icone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icone" />
+
+        <TextView
+            android:id="@+id/nome_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icone"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Larissa Souza"
+            android:textColor="@color/colorText"
+            android:textSize="25dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header">
+
+        <TextView
+            android:id="@+id/tv_espcialidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Especialidade"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/especialidade_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_espcialidade"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Fisioterapeuta"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/linha1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/especialidade_perfil"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/tv_fone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linha1"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Fone"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fone_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_fone"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="(81)99939-4973"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/linha2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/fone_perfil"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linha2"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="E-mail"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/email_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_email"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Larissadesouza16@live.com"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/linha3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/email_perfil"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/tv_endereco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linha3"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Local de Atendimento"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/endereco_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_endereco"
+            android:layout_marginLeft="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/linha4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/endereco_perfil"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal" />
+
+
+        <ImageButton
+            android:id="@+id/editar_perfil"
+            style="@android:style/Widget.Holo.Light.ImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linha4"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/border_circle"
+            android:src="@drawable/botao_editar"
+            android:text="Editar" />
+
+    </RelativeLayout>
+</RelativeLayout>

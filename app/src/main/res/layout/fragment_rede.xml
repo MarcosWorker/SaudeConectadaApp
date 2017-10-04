@@ -4,11 +4,64 @@
     android:layout_height="match_parent"
     tools:context=".flow.fragment.RedeFragment">
 
-    <ListView
-        android:id="@+id/list_view_rede"
+    <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+        <TextView
+            android:id="@+id/titulo_rede"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Busque aqui o profissional"/>
+
+        <Spinner
+            android:id="@+id/spinner_pais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titulo_rede"
+            android:layout_margin="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_pais"
+            android:layout_margin="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_cidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_estado"
+            android:layout_margin="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_bairro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner_cidade"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/bt_buscar_rede"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_bairro"
+            android:layout_margin="8dp"
+            android:background="@drawable/borda_botao"
+            android:text="Buscar"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/list_view_rede"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_buscar_rede" />
+
+    </RelativeLayout>
 
 </FrameLayout>
