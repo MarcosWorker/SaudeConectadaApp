@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -36,7 +37,7 @@ import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 public class CadastrarActivity extends AppCompatActivity {
 
-    private Button btSalvar;
+    private ImageButton btSalvar;
     private Intent intent;
     private EditText edtNome;
     private EditText edtEmail;
@@ -99,7 +100,7 @@ public class CadastrarActivity extends AppCompatActivity {
             new CadastrarActivity.GetUnidade().execute(url);
 
 
-            btSalvar = (Button) findViewById(R.id.btn_salvar);
+            btSalvar = (ImageButton) findViewById(R.id.btn_salvar);
 
             btSalvar.setOnClickListener(new View.OnClickListener() {
                 @Override

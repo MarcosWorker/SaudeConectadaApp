@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText edtEmail;
     private EditText edtNumero;
-    private Button btEntrar;
+    private ImageButton btEntrar;
     private Button btCadastrar;
     private String url;
     private Intent intent;
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
         edtEmail = (EditText) findViewById(R.id.edit_text_email);
         edtNumero = (EditText) findViewById(R.id.edit_text_numero);
-        btEntrar = (Button) findViewById(R.id.btn_entrar);
+        btEntrar = (ImageButton) findViewById(R.id.btn_entrar);
         btCadastrar = (Button) findViewById(R.id.btn_cadastrar);
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override

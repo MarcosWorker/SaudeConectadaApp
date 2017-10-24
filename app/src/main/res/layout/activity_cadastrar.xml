@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="br.com.alphadev.saudeconectadaapp.flow.CadastrarActivity">
 
     <android.support.v7.widget.Toolbar
@@ -12,8 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        >
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <ImageView
             android:id="@+id/yourlogo"
@@ -28,244 +26,145 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar_cadastrar"
         android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/toolbar_cadastrar">
+        android:background="@drawable/background_image">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed"
             android:gravity="center"
-            android:text="Cadastro"
-            android:textColor="@color/colorPrimary"
+            android:text="CADASTRO"
+            android:textColor="@color/colorTextBlack"
             android:textSize="20dp"
             android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="48.37dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="2.4dp"
+            android:layout_gravity="center"
+            android:background="@color/colorTextBlack" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="Dados do Profissional"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorTextBlack"
             android:textSize="18dp"
             android:textStyle="bold" />
         <!-- nome -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/text_nome_cadastro"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Nome:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edt_nome_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Nome"
+            android:inputType="textCapSentences|textMultiLine"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
 
-            <EditText
-                android:id="@+id/edt_nome_cadastro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_circle"
-                android:fontFamily="serif-monospace"
-                android:inputType="textCapSentences|textMultiLine"
-                android:paddingLeft="5dp"
-                android:textSize="16dp" />
+        <EditText
+            android:id="@+id/edt_email_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
 
-        </LinearLayout>
+        <EditText
+            android:id="@+id/edt_telefone_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Telefone"
+            android:inputType="phone"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edt_numero_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Nº Inscrição"
+            android:inputType="number"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
 
-            <TextView
-                android:id="@+id/text_email_cadastro"
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="E-mail:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <Spinner
+            android:id="@+id/spinner_especialidade"
+            style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle" />
 
-            <EditText
-                android:id="@+id/edt_email_cadastro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="33dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_circle"
-                android:fontFamily="serif-monospace"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="5dp"
-                android:textSize="16dp" />
-        </LinearLayout>
+        <Spinner
+            android:id="@+id/spinner_conselho"
+            style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spinner_unidade"
+            style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_circle"/>
 
-            <TextView
-                android:id="@+id/text_telefone_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Telefone:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_telefone_cadastro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="34dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border_circle"
-                android:fontFamily="serif-monospace"
-                android:inputType="phone"
-                android:paddingLeft="5dp"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/text_numero_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="N° inscrição:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edt_numero_cadastro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="serif-monospace"
-                android:background="@drawable/border_circle"
-                android:inputType="number"
-                android:paddingLeft="5dp"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_categodia_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Especialidade:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner_especialidade"
-                style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_conselho_cadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Conselho"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner_conselho"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/text_endereco_atendimento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="left"
-                android:text="Unidade:"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner_unidade"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-        </LinearLayout>
-
-        <Button
+        <ImageButton
             android:id="@+id/btn_salvar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@id/spinner_unidade"
-            android:layout_margin="5dp"
             android:background="@drawable/borda_botao"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:onClick="cadastrarOnClick"
-            android:text="@string/button_cadastrar"
-            android:textAllCaps="false"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:src="@drawable/button_cadastrar" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Obs. Caso não possua os dados acima, favor entre em contato com seu conselho." />
+            android:id="@+id/textView"
+            android:layout_width="287.73dp"
+            android:layout_height="39.58dp"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Obs: Caso não possua os dados acima, favor entre em contato com seu conselho."
+            android:textColor="@color/colorTextBlack"
+            android:textSize="17dp"
+            android:textStyle="italic" />
     </LinearLayout>
 
 </RelativeLayout>

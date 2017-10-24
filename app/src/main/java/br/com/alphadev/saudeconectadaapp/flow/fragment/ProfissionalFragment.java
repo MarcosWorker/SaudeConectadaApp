@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class ProfissionalFragment extends Fragment {
     private Spinner spinnerUnidade;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayAdapter<String> spinnerArrayAdapter;
-    private Button buscar;
+    private ImageButton buscar;
     private Intent intent;
 
     public ProfissionalFragment() {
@@ -64,7 +65,7 @@ public class ProfissionalFragment extends Fragment {
 
         spinnerUnidade = (Spinner) view.findViewById(R.id.spinner_unidade_profissional);
         spinnerEspecialidade = (Spinner) view.findViewById(R.id.spinner_especialidade_profissional);
-        buscar = (Button) view.findViewById(R.id.btn_buscar_profissionais);
+        buscar = (ImageButton) view.findViewById(R.id.btn_buscar_profissionais);
 
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override

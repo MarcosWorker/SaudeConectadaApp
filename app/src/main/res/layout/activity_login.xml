@@ -3,89 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_verde"
     tools:context="br.com.alphadev.saudeconectadaapp.flow.LoginActivity">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@mipmap/ic_launcher_saude_conectada"
-        android:layout_above="@+id/formLogin"
+        android:id="@+id/logomarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logomarca"
+        android:layout_marginTop="117.8dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="276dp"
+        android:layout_height="40.63dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp" />
+        android:layout_marginTop="80dp"
+        android:layout_below="@id/logomarca"
+        android:background="@drawable/border_circle"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingLeft="8.8dp"
+        android:hint="E-mail"
+        android:inputType="text"
+        android:textColor="#8A8A8A" />
 
-    <LinearLayout
-        android:id="@+id/formLogin"
+    <EditText
+        android:layout_below="@id/edit_text_email"
+        android:id="@+id/edit_text_numero"
+        android:layout_width="276dp"
+        android:layout_height="40.63dp"
+        android:layout_marginTop="16.2dp"
+        android:background="@drawable/border_circle"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="Senha"
+        android:paddingLeft="8.8dp"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_entrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="64dp"
-        android:layout_above="@+id/btn_cadastrar"
-        android:layout_alignStart="@+id/btn_cadastrar">
-
-        <EditText
-            android:id="@+id/edit_text_email"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border_circle"
-            android:gravity="center"
-            android:hint="E-mail"
-            android:inputType="text"
-            android:textStyle="bold"
-             />
-
-        <EditText
-            android:id="@+id/edit_text_numero"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/border_circle"
-            android:gravity="center"
-            android:hint="N° de inscrição"
-            android:textStyle="bold"
-            android:inputType="textPassword"
-            />
-
-        <Button
-            android:id="@+id/btn_entrar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/edit_text_numero"
-            android:background="@drawable/borda_botao"
-            android:gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="@string/button_entrar"
-            android:textAllCaps="false"
-            android:textColor="@color/colorText"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/formLogin"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout">
-
-    </LinearLayout>
+        android:layout_height="50dp"
+        android:layout_below="@id/edit_text_numero"
+        android:background="@drawable/borda_botao"
+        android:src="@drawable/botao_login"
+        android:layout_marginTop="30.4dp"/>
 
     <Button
         android:id="@+id/btn_cadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
         android:layout_margin="10dp"
         android:background="#00000000"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/button_cadastrar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:textAllCaps="false"
+        android:textColor="@color/colorText"
+        android:textSize="20dp"/>
 
 </RelativeLayout>
