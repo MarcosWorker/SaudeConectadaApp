@@ -53,7 +53,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/borda_botao"
             android:text="Buscar"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textStyle="bold" />
 
         <ListView
