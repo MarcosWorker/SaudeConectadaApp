@@ -31,12 +31,21 @@
             android:background="@color/colorTextBlack" />
 
         <Spinner
-            android:id="@+id/spinner_especialidade_profissional"
+            android:id="@+id/spinner_cidade_profissional"
             style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
             android:layout_width="262dp"
             android:layout_height="40.63dp"
             android:layout_gravity="center"
             android:layout_marginTop="70dp"
+            android:background="@drawable/border_circle" />
+
+        <Spinner
+            android:id="@+id/spinner_especialidade_profissional"
+            style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+            android:layout_width="262dp"
+            android:layout_height="40.63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:background="@drawable/border_circle" />
 
         <Spinner

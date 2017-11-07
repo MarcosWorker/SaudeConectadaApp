@@ -10,8 +10,9 @@ public class Profissional {
     private String NumInscricao;
     private String especialidade;
     private String unidade;
+    private String cidade;
 
-    public Profissional(String id, String nome, String email, String telefone, String conselho, String numInscricao, String especialidade, String unidade) {
+    public Profissional(String id, String nome, String email, String telefone, String conselho, String numInscricao, String especialidade, String unidade,String cidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -20,6 +21,7 @@ public class Profissional {
         NumInscricao = numInscricao;
         this.especialidade = especialidade;
         this.unidade = unidade;
+        this.cidade=cidade;
     }
 
     public Profissional() {
@@ -88,5 +90,13 @@ public class Profissional {
 
     public void setUnidade(String unidade) {
         this.unidade = unidade;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 }

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -14,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -39,13 +40,16 @@ public class ProfissionalFragment extends Fragment {
     private String url;
     private String especialidade;
     private String unidade;
+    private String cidade;
     private List<Profissional> profissionaisWS;
     private List<String> especialidadeProfissionais;
     private List<String> unidadesProfissionais;
+    private List<String> cidadesProfissionais;
     private Profissional profissional;
     private View view;
     private Spinner spinnerEspecialidade;
     private Spinner spinnerUnidade;
+    private Spinner spinnerCidade;
     private ArrayAdapter<String> arrayAdapter;
     private ArrayAdapter<String> spinnerArrayAdapter;
     private ImageButton buscar;
@@ -63,6 +67,7 @@ public class ProfissionalFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_profissional, container, false);
         profissionaisWS = new ArrayList<>();
 
+        spinnerCidade = (Spinner) view.findViewById(R.id.spinner_cidade_profissional);
         spinnerUnidade = (Spinner) view.findViewById(R.id.spinner_unidade_profissional);
         spinnerEspecialidade = (Spinner) view.findViewById(R.id.spinner_especialidade_profissional);
         buscar = (ImageButton) view.findViewById(R.id.btn_buscar_profissionais);
@@ -77,7 +82,8 @@ public class ProfissionalFragment extends Fragment {
 
                     for (int i = 0; profissionaisWS.size() > i; i++) {
                         if (profissionaisWS.get(i).getUnidade().contains(unidade) &&
-                                profissionaisWS.get(i).getEspecialidade().contains(especialidade)) {
+                                profissionaisWS.get(i).getEspecialidade().contains(especialidade) &&
+                                profissionaisWS.get(i).getCidade().contains(cidade)) {
                             ListaProfissionaisActivity.profissionais.add(profissionaisWS.get(i));
                         }
                     }
@@ -132,8 +138,12 @@ public class ProfissionalFragment extends Fragment {
             if (resultado != null) {
                 try {
                     JSONArray json = new JSONArray(resultado);
-                    especialidadeProfissionais = new ArrayList<String>();
-                    unidadesProfissionais = new ArrayList<String>();
+                    cidadesProfissionais = new ArrayList<>();
+                    especialidadeProfissionais = new ArrayList<>();
+                    unidadesProfissionais = new ArrayList<>();
+                    cidadesProfissionais.add("cidade");
+                    especialidadeProfissionais.add("Especialidade");
+                    unidadesProfissionais.add("Unidade");
 
                     for (int i = 0; i < json.length(); i++) {
                         //...
@@ -146,7 +156,11 @@ public class ProfissionalFragment extends Fragment {
                                 jsonObject.getString("conselho"),
                                 jsonObject.getString("num_inscricao"),
                                 jsonObject.getString("especialidade"),
-                                jsonObject.getString("unidade"));
+                                jsonObject.getString("unidade"),
+                                jsonObject.getString("cidade"));
+                        if (!cidadesProfissionais.contains(jsonObject.getString("cidade"))) {
+                            cidadesProfissionais.add(jsonObject.getString("cidade"));
+                        }
                         if (!especialidadeProfissionais.contains(jsonObject.getString("especialidade"))) {
                             especialidadeProfissionais.add(jsonObject.getString("especialidade"));
                         }
@@ -155,11 +169,102 @@ public class ProfissionalFragment extends Fragment {
                         }
                         profissionaisWS.add(profissional);
                     }
+
+                    final ArrayAdapter<String> spinnerArrayAdapterCidade = new ArrayAdapter<String>(
+                            getContext(), android.R.layout.simple_spinner_dropdown_item, cidadesProfissionais) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
+
+                    spinnerArrayAdapterCidade.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                    spinnerCidade.setAdapter(spinnerArrayAdapterCidade);
+
+                    spinnerCidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+                            //pega nome pela posição
+                            if (posicao > 0) {
+                                cidade = parent.getItemAtPosition(posicao).toString();
+                            }
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+
+
                     //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-                    arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, especialidadeProfissionais);
-                    spinnerArrayAdapter = arrayAdapter;
-                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-                    spinnerEspecialidade.setAdapter(spinnerArrayAdapter);
+                    final ArrayAdapter<String> spinnerArrayAdapterEspecialidade = new ArrayAdapter<String>(
+                            getContext(), android.R.layout.simple_spinner_dropdown_item, especialidadeProfissionais) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
+
+                    spinnerArrayAdapterEspecialidade.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                    spinnerEspecialidade.setAdapter(spinnerArrayAdapterEspecialidade);
 
                     //Método do Spinner para capturar o item selecionado
                     spinnerEspecialidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -167,7 +272,9 @@ public class ProfissionalFragment extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
                             //pega nome pela posição
-                            especialidade = parent.getItemAtPosition(posicao).toString();
+                            if (posicao > 0) {
+                                especialidade = parent.getItemAtPosition(posicao).toString();
+                            }
                         }
 
                         @Override
@@ -177,10 +284,44 @@ public class ProfissionalFragment extends Fragment {
                     });
 
                     //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-                    arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, unidadesProfissionais);
-                    spinnerArrayAdapter = arrayAdapter;
-                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-                    spinnerUnidade.setAdapter(spinnerArrayAdapter);
+                    final ArrayAdapter<String> spinnerArrayAdapterUnidades = new ArrayAdapter<String>(
+                            getContext(), android.R.layout.simple_spinner_dropdown_item, unidadesProfissionais) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
+
+                    spinnerArrayAdapterUnidades.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                    spinnerUnidade.setAdapter(spinnerArrayAdapterUnidades);
 
                     //Método do Spinner para capturar o item selecionado
                     spinnerUnidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -188,7 +329,9 @@ public class ProfissionalFragment extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
                             //pega nome pela posição
-                            unidade = parent.getItemAtPosition(posicao).toString();
+                            if (posicao > 0) {
+                                unidade = parent.getItemAtPosition(posicao).toString();
+                            }
                         }
 
                         @Override

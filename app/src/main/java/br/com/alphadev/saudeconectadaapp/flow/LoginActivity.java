@@ -124,7 +124,8 @@ public class LoginActivity extends AppCompatActivity {
                                     jsonObject.getString("conselho"),
                                     jsonObject.getString("num_inscricao"),
                                     jsonObject.getString("especialidade"),
-                                    jsonObject.getString("unidade"));
+                                    jsonObject.getString("unidade"),
+                                    jsonObject.getString("cidade"));
                             logou=true;
                         } else {
 
