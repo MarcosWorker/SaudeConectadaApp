@@ -1,10 +1,10 @@
 
 package br.com.alphadev.saudeconectadaapp.flow;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -12,14 +12,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -217,6 +217,7 @@ public class CadastrarActivity extends AppCompatActivity {
                     JSONArray json = new JSONArray(resultado);
                     especialidades = new ArrayList<Especialidade>();
                     nomesEspecialidades = new ArrayList<String>();
+                    nomesEspecialidades.add("Especialidade");
                     for (int i = 0; i < json.length(); i++) {
                         JSONObject jsonObject = (JSONObject) json.get(i);
                         especialidade = new Especialidade(jsonObject.getInt("id"), jsonObject.getString("nome"));
@@ -226,7 +227,41 @@ public class CadastrarActivity extends AppCompatActivity {
                     }
 
                     //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesEspecialidades);
+                    final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                            CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesEspecialidades) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
 
                     spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
                     spinnerEspecialidade.setAdapter(spinnerArrayAdapter);
@@ -235,9 +270,11 @@ public class CadastrarActivity extends AppCompatActivity {
 
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-                            for (Especialidade especialidade : especialidades) {
-                                if (especialidade.getNome().contains(parent.getItemAtPosition(posicao).toString())) {
-                                    idEspecialidade = especialidade.getId();
+                            if (posicao > 0) {
+                                for (Especialidade especialidade : especialidades) {
+                                    if (especialidade.getNome().contains(parent.getItemAtPosition(posicao).toString())) {
+                                        idEspecialidade = especialidade.getId();
+                                    }
                                 }
                             }
                         }
@@ -288,6 +325,7 @@ public class CadastrarActivity extends AppCompatActivity {
                     JSONArray json = new JSONArray(resultado);
                     conselhos = new ArrayList<Conselho>();
                     nomesConselhos = new ArrayList<String>();
+                    nomesConselhos.add("Conselho");
                     for (int i = 0; i < json.length(); i++) {
                         JSONObject jsonObject = (JSONObject) json.get(i);
                         conselho = new Conselho(jsonObject.getInt("id"), jsonObject.getString("nome"));
@@ -297,8 +335,43 @@ public class CadastrarActivity extends AppCompatActivity {
                     }
 
                     //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesConselhos);
-                    ;
+                    final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                            CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesConselhos) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
+
+
                     spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
                     spinnerConselho.setAdapter(spinnerArrayAdapter);
 
@@ -306,10 +379,12 @@ public class CadastrarActivity extends AppCompatActivity {
 
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-                            for (Conselho conselho : conselhos) {
-                                if (conselho.getNome().contains(parent.getItemAtPosition(posicao).toString())) {
-                                    idConselho = conselho.getId();
+                            if (posicao > 0) {
+                                for (Conselho conselho : conselhos) {
+                                    if (conselho.getNome().contains(parent.getItemAtPosition(posicao).toString())) {
+                                        idConselho = conselho.getId();
 
+                                    }
                                 }
                             }
                         }
@@ -360,6 +435,7 @@ public class CadastrarActivity extends AppCompatActivity {
                     JSONArray json = new JSONArray(resultado);
                     unidades = new ArrayList<Rede>();
                     nomesUnidades = new ArrayList<String>();
+                    nomesUnidades.add("Unidade");
                     for (int i = 0; i < json.length(); i++) {
                         //...
                         JSONObject jsonObject = (JSONObject) json.get(i);
@@ -371,8 +447,41 @@ public class CadastrarActivity extends AppCompatActivity {
                     }
 
                     //Cria um ArrayAdapter usando um padrão de layout da classe R do android, passando o ArrayList nomes
-                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesUnidades);
-                    ;
+                    final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                            CadastrarActivity.this, android.R.layout.simple_spinner_dropdown_item, nomesUnidades) {
+
+                        @Override
+                        public boolean isEnabled(int position) {
+
+                            if (position == 0) {
+
+                                // Disabilita a primeira posição (hint)
+                                return false;
+
+                            } else {
+                                return true;
+                            }
+                        }
+
+                        @Override
+                        public View getDropDownView(int position, View convertView,
+                                                    ViewGroup parent) {
+
+                            View view = super.getDropDownView(position, convertView, parent);
+                            TextView tv = (TextView) view;
+
+                            if (position == 0) {
+
+                                // Deixa o hint com a cor cinza ( efeito de desabilitado)
+                                tv.setTextColor(Color.GRAY);
+
+                            } else {
+                                tv.setTextColor(Color.BLACK);
+                            }
+
+                            return view;
+                        }
+                    };
                     spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
                     spinnerUnidade.setAdapter(spinnerArrayAdapter);
 
@@ -381,9 +490,11 @@ public class CadastrarActivity extends AppCompatActivity {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
                             //pega nome pela posição
-                            for (Rede rede : unidades) {
-                                if (rede.getUnidade().contains(parent.getItemAtPosition(posicao).toString())) {
-                                    idRede = rede.getId();
+                            if (posicao > 0) {
+                                for (Rede rede : unidades) {
+                                    if (rede.getUnidade().contains(parent.getItemAtPosition(posicao).toString())) {
+                                        idRede = rede.getId();
+                                    }
                                 }
                             }
                         }

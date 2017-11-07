@@ -152,7 +152,6 @@
             android:background="@drawable/borda_botao"
             android:gravity="center"
             android:layout_marginTop="5dp"
-            android:onClick="cadastrarOnClick"
             android:src="@drawable/button_cadastrar" />
 
         <TextView
