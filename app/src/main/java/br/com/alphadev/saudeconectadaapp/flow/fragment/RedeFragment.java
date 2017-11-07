@@ -199,9 +199,13 @@ public class RedeFragment extends Fragment {
                     spinnerBairro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                             for(Rede rede:redes){
                                 if(!rede.getBairro().equals(parent.getItemAtPosition(position).toString())){
                                     redes.remove(rede);
+                                    if(redes.isEmpty()){
+                                        break;
+                                    }
                                 }
                             }
                         }

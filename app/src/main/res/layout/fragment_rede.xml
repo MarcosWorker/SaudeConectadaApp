@@ -28,21 +28,21 @@
             android:id="@+id/spinner_estado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_pais"
+            android:layout_below="@id/spinner_pais"
             android:layout_margin="8dp"/>
 
         <Spinner
             android:id="@+id/spinner_cidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_estado"
+            android:layout_below="@id/spinner_estado"
             android:layout_margin="8dp"/>
 
         <Spinner
             android:id="@+id/spinner_bairro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_cidade"
+            android:layout_below="@id/spinner_cidade"
             android:layout_margin="8dp"/>
 
         <Button
