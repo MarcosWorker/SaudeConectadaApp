@@ -171,10 +171,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/borda_botao"
+                android:background="@color/colorPrimary"
                 android:text="Enviar"
                 android:textAllCaps="false"
-                android:textColor="@color/colorText"
+                android:textColor="#fff"
                 android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
