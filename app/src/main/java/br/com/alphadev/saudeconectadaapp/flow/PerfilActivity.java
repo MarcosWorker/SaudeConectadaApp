@@ -2,6 +2,7 @@ package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -9,6 +10,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +30,9 @@ public class PerfilActivity extends AppCompatActivity {
     private TextView tvfone = null;
     private TextView tvemail = null;
     private TextView tvlocal = null;
+    private ImageButton btEditar;
     private String url = null;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,25 @@ public class PerfilActivity extends AppCompatActivity {
         tvlocal=(TextView)findViewById(R.id.endereco_perfil);
         tvfone=(TextView)findViewById(R.id.fone_perfil);
         tvemail=(TextView)findViewById(R.id.email_perfil);
+        btEditar=(ImageButton)findViewById(R.id.btn_editar);
+
+        btEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tvnome.getText().equals("")||tvnome==null){
+                    Toast.makeText(PerfilActivity.this, "Impossível editar dados vazios", Toast.LENGTH_SHORT).show();
+                }else {
+                    intent=new Intent(PerfilActivity.this,EditarPerfilActivity.class);
+                    intent.putExtra("nome",tvnome.getText());
+                    intent.putExtra("especialidade",tvespecialidade.getText());
+                    intent.putExtra("fone",tvfone.getText());
+                    intent.putExtra("email",tvemail.getText());
+                    intent.putExtra("local",tvlocal.getText());
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         SharedPreferences prefs = getSharedPreferences("login", 0);
 

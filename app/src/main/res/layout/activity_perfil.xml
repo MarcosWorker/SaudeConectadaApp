@@ -181,7 +181,7 @@
             android:orientation="horizontal" />
 
         <ImageButton
-            android:id="@+id/btn_entrar"
+            android:id="@+id/btn_editar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/linha4"
