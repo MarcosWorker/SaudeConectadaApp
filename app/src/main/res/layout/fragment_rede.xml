@@ -4,77 +4,80 @@
     android:layout_height="match_parent"
     tools:context=".flow.fragment.RedeFragment">
 
-    <RelativeLayout
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
         android:background="@drawable/background_image">
 
         <TextView
-            android:id="@+id/titulo_rede"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:id="@+id/txt_profissional"
+            android:layout_width="wrap_content"
+            android:layout_height="25.1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="38.2dp"
             android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="Rede Social"
+            android:text="REDE"
             android:textColor="@color/colorTextBlack"
             android:textSize="20dp"
             android:textStyle="bold" />
 
+        <RelativeLayout
+            android:layout_width="20.02dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2.4dp"
+            android:background="@color/colorTextBlack" />
+
         <Spinner
             android:id="@+id/spinner_pais"
             android:layout_width="262dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/titulo_rede"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
+            android:layout_height="40.63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:background="@drawable/border_circle"/>
 
         <Spinner
             android:id="@+id/spinner_estado"
             android:layout_width="262dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/spinner_pais"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
+            android:layout_height="40.63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:background="@drawable/border_circle"/>
 
         <Spinner
             android:id="@+id/spinner_cidade"
             android:layout_width="262dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/spinner_estado"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
+            android:layout_height="40.63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:background="@drawable/border_circle"/>
 
         <Spinner
             android:id="@+id/spinner_bairro"
             android:layout_width="262dp"
-            android:layout_height="35dp"
-            android:layout_below="@id/spinner_cidade"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
+            android:layout_height="40.63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:background="@drawable/border_circle"/>
 
         <ImageButton
             android:id="@+id/bt_buscar_rede"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@id/spinner_bairro"
-            android:layout_margin="8dp"
             android:background="@drawable/borda_botao"
             android:gravity="center"
-            android:src="@drawable/button_buscar"
-            android:textStyle="bold" />
-
+            android:layout_marginTop="5dp"
+            android:src="@drawable/button_rede" />
         <ListView
             android:id="@+id/list_view_rede"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bt_buscar_rede" />
+            android:layout_below="@id/bt_buscar_rede"
+            android:padding="10dp"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </FrameLayout>
