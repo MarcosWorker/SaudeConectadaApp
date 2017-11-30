@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class FaleConoscoFragment extends Fragment {
     private String motivo;
     private String parametros;
     private String url;
-    private Button btEnviar;
+    private ImageButton btEnviar;
     private JSONObject jsonObject;
 
     public FaleConoscoFragment() {
@@ -59,7 +60,7 @@ public class FaleConoscoFragment extends Fragment {
         edtEmail = (EditText) view.findViewById(R.id.email_edt_faleconosco);
         edtFone = (EditText) view.findViewById(R.id.fone_edt_faleconosco);
         edtMsg = (EditText) view.findViewById(R.id.msg_edt_faleconosco);
-        btEnviar = (Button) view.findViewById(R.id.enviar_bt_faleconosco);
+        btEnviar = (ImageButton) view.findViewById(R.id.enviar_bt_faleconosco);
 
         btEnviar.setOnClickListener(new View.OnClickListener() {
             @Override

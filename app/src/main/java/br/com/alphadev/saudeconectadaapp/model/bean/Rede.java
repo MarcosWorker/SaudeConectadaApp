@@ -7,7 +7,6 @@ public class Rede {
     private String bairro;
     private String cidade;
     private String telefone;
-    private String funcionamento;
     private double latitude;
     private double longitude;
 
@@ -15,13 +14,12 @@ public class Rede {
 
     }
 
-    public Rede(String unidade, String endereco, String bairro, String cidade, String telefone, String funcionamento, double latitude, double longitude) {
+    public Rede(String unidade, String endereco, String bairro, String cidade, String telefone, double latitude, double longitude) {
         this.unidade = unidade;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cidade = cidade;
         this.telefone = telefone;
-        this.funcionamento = funcionamento;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -73,14 +71,6 @@ public class Rede {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getFuncionamento() {
-        return funcionamento;
-    }
-
-    public void setFuncionamento(String funcionamento) {
-        this.funcionamento = funcionamento;
     }
 
     public double getLatitude() {

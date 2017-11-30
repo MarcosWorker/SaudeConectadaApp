@@ -1,7 +1,8 @@
 package br.com.alphadev.saudeconectadaapp.flow;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -29,12 +30,18 @@ public class EditarPerfilActivity extends AppCompatActivity {
     private String url;
     private ConnectivityManager connMgr;
     private NetworkInfo networkInfo;
-    private Intent intent;
+    private SharedPreferences prefs;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil);
+
+        prefs = getSharedPreferences("login", 0);
+
+        connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo = connMgr.getActiveNetworkInfo();
 
         edtNome = (EditText) findViewById(R.id.nome_editar_perfil);
         edtEspecialidade = (EditText) findViewById(R.id.especialidade_editar_perfil);
@@ -43,13 +50,13 @@ public class EditarPerfilActivity extends AppCompatActivity {
         edtLocalDeAtendimento = (EditText) findViewById(R.id.localdeatendimento_editar_perfil);
         btEditarperifl = (ImageButton) findViewById(R.id.btn_editar_perfil);
 
-        intent=new Intent();
+        bundle = getIntent().getExtras();
 
-        edtNome.setText(intent.getStringExtra("nome"));
-        edtLocalDeAtendimento.setText(intent.getStringExtra("local"));
-        edtEmail.setText(intent.getStringExtra("email"));
-        edtFone.setText(intent.getStringExtra("fone"));
-        edtEspecialidade.setText(intent.getStringExtra("especialidade"));
+        edtNome.setText(bundle.getString("nome"));
+        edtLocalDeAtendimento.setText(bundle.getString("local"));
+        edtEmail.setText(bundle.getString("email"));
+        edtFone.setText(bundle.getString("fone"));
+        edtEspecialidade.setText(bundle.getString("especialidade"));
 
         btEditarperifl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +73,17 @@ public class EditarPerfilActivity extends AppCompatActivity {
                     Toast.makeText(EditarPerfilActivity.this, "Digite o Local de Atendimento", Toast.LENGTH_SHORT).show();
                 } else {
                     if (networkInfo != null && networkInfo.isConnected()) {
-                        url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaAlterar/";
-                        parametros="nome=";
+                        url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaAtualizarPerfilBasico/" + prefs.getString("idLogado", null);
+                        parametros = "id=" + edtNome.getText().toString() +
+                                "&email=" + edtEmail.getText().toString() +
+                                "&telefone=" + edtFone.getText().toString() +
+                                "&rede=" + edtLocalDeAtendimento.getText().toString() +
+                                "&especialidade=" + edtEspecialidade.getText().toString();
+
+                        Toast.makeText(EditarPerfilActivity.this, "Estamos ajustando isso", Toast.LENGTH_SHORT).show();
+//                        new PostEditar().execute(url);
+                    } else {
+                        Toast.makeText(EditarPerfilActivity.this, "verifique sua internet", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

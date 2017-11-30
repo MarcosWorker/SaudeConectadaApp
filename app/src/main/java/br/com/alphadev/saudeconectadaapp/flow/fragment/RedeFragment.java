@@ -166,11 +166,10 @@ public class RedeFragment extends Fragment {
                         String bairro = jsonObject.getString("bairro");
                         String cidade = jsonObject.getString("cidade");
                         String telefone = jsonObject.getString("telefone");
-                        String funcionamento = jsonObject.getString("funcionamento");
                         double latitude = jsonObject.getDouble("latitude");
                         double longitude = jsonObject.getDouble("longitude");
 
-                        rede = new Rede(unidade, endereco, bairro, cidade, telefone, funcionamento, latitude, longitude);
+                        rede = new Rede(unidade, endereco, bairro, cidade, telefone, latitude, longitude);
                         redes.add(rede);
                         if(!cidades.contains(rede.getCidade())){
                             cidades.add(rede.getCidade());
