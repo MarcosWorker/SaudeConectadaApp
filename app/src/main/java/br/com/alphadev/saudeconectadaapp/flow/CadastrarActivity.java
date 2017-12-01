@@ -42,6 +42,8 @@ public class CadastrarActivity extends AppCompatActivity {
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtTelefone;
+    private EditText edtCidade;
+    private EditText edtSenha;
     private EditText edtNumInscricao;
     private Spinner spinnerUnidade;
     private Spinner spinnerConselho;
@@ -81,6 +83,8 @@ public class CadastrarActivity extends AppCompatActivity {
             }
         });
 
+        edtCidade = (EditText)findViewById(R.id.edt_cidade_cadastro);
+        edtSenha=(EditText)findViewById(R.id.edt_senha_cadastro);
         edtNome = (EditText) findViewById(R.id.edt_nome_cadastro);
         edtEmail = (EditText) findViewById(R.id.edt_email_cadastro);
         edtTelefone = (EditText) findViewById(R.id.edt_telefone_cadastro);
@@ -106,6 +110,8 @@ public class CadastrarActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (!edtNome.getText().toString().isEmpty() ||
+                            !edtCidade.getText().toString().isEmpty()||
+                            !edtSenha.getText().toString().isEmpty()||
                             !edtEmail.getText().toString().isEmpty() ||
                             !edtTelefone.getText().toString().isEmpty() ||
                             !edtNumInscricao.getText().toString().isEmpty()) {
@@ -115,10 +121,12 @@ public class CadastrarActivity extends AppCompatActivity {
 
                             parametros = "nome=" + edtNome.getText().toString() +
                                     "&email=" + edtEmail.getText().toString() +
+                                    "&senha=" + edtSenha.getText().toString() +
                                     "&telefone=" + edtTelefone.getText().toString() +
                                     "&conselho=" + idConselho +
                                     "&num_inscricao=" + edtNumInscricao.getText().toString() +
                                     "&especialidade=" + idEspecialidade +
+                                    "&cidade=" + edtCidade.getText().toString() +
                                     "&rede=" + idRede;
 
                             new PostCadastro().execute(url);

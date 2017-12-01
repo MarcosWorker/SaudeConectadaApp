@@ -20,7 +20,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCdQvaK_RXTFCfhDkk2eWoZn1DCky3geTM" />
+            android:value="AIzaSyAU53u7DjGbhYVFp_fQke1ANDSBDs-kM8E" />
 
         <activity
             android:name=".flow.LoginActivity"

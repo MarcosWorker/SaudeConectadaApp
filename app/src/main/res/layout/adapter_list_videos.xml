@@ -17,6 +17,6 @@
         android:layout_marginLeft="30dp"
         android:textColor="@color/colorBlack"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        />
 
 </LinearLayout>

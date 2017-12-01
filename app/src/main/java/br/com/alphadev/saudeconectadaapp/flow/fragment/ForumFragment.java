@@ -137,6 +137,7 @@ public class ForumFragment extends Fragment {
                         forumTopico.setId(jsonTopico.getInt("id"));
                         forumTopico.setTopico(jsonTopico.getString("topico"));
                         forumTopico.setIdprofissional(jsonTopico.getInt("id_profissional"));
+                        forumTopico.setData(jsonTopico.getString("data_postagem"));
                             for (int r = 0; r < jsonRespostas.length(); r++) {
                                 JSONObject jsonResposta = (JSONObject) jsonRespostas.get(r);
                                 if (jsonResposta.getInt("id_topico") == forumTopico.getId()) {

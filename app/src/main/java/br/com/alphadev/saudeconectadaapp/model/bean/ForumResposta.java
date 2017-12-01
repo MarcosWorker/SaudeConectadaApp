@@ -10,6 +10,7 @@ public class ForumResposta {
     private String resposta;
     private int idtopico;
     private int idprofissional;
+    private String data;
 
     public ForumResposta() {
     }
@@ -46,8 +47,16 @@ public class ForumResposta {
         this.idprofissional = idprofissional;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     @Override
     public String toString() {
-        return resposta;
+        return data+"\n\n"+resposta+"\n";
     }
 }

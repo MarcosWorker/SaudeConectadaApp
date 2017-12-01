@@ -42,6 +42,7 @@ public class AdapterForumTopico extends RecyclerView.Adapter<AdapterForumTopico.
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ForumTopico topico = topicos.get(position);
         holder.tvTitulo.setText(topico.getTopico());
+        holder.tvData.setText(topico.getData());
 
         if (topico.getQtdRespostas() == 0) {
             holder.tvQtdRespostas.setText("Sem resposta.");
@@ -79,12 +80,14 @@ public class AdapterForumTopico extends RecyclerView.Adapter<AdapterForumTopico.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvTitulo;
+        private TextView tvData;
         private TextView tvQtdRespostas;
         private LinearLayout item;
 
         public ViewHolder(View v) {
             super(v);
 
+            tvData=(TextView)v.findViewById(R.id.data_forum_topico);
             tvTitulo = (TextView) v.findViewById(R.id.titulo_forum_topico);
             tvQtdRespostas = (TextView) v.findViewById(R.id.qtd_respostas_forum_topico);
             item = (LinearLayout) v.findViewById(R.id.item_topico_forum);

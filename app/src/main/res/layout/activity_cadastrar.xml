@@ -27,8 +27,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/toolbar_cadastrar"
-        android:orientation="vertical"
-        android:background="@drawable/background_image">
+        android:background="@drawable/background_image"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -41,24 +41,6 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <RelativeLayout
-            android:layout_width="48.37dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="2.4dp"
-            android:layout_gravity="center"
-            android:background="@color/colorTextBlack" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="Dados do Profissional"
-            android:textColor="@color/colorTextBlack"
-            android:textSize="18dp"
-            android:textStyle="bold" />
         <!-- nome -->
 
         <EditText
@@ -66,7 +48,7 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle"
             android:fontFamily="sans-serif-condensed"
             android:hint="Nome"
@@ -80,7 +62,7 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle"
             android:fontFamily="sans-serif-condensed"
             android:hint="E-mail"
@@ -94,7 +76,7 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle"
             android:fontFamily="sans-serif-condensed"
             android:hint="Telefone"
@@ -104,15 +86,43 @@
             android:textSize="16dp" />
 
         <EditText
+            android:id="@+id/edt_cidade_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Cidade"
+            android:inputType="textCapSentences|textMultiLine"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
+
+        <EditText
             android:id="@+id/edt_numero_cadastro"
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle"
             android:fontFamily="sans-serif-condensed"
             android:hint="Nº Inscrição"
             android:inputType="number"
+            android:paddingLeft="8.8dp"
+            android:textColorHint="@color/colorTextBlack"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/edt_senha_cadastro"
+            android:layout_width="262dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border_circle"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="senha"
+            android:inputType="textCapSentences|textMultiLine"
             android:paddingLeft="8.8dp"
             android:textColorHint="@color/colorTextBlack"
             android:textSize="16dp" />
@@ -123,7 +133,7 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle" />
 
         <Spinner
@@ -132,7 +142,7 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border_circle" />
 
         <Spinner
@@ -141,17 +151,17 @@
             android:layout_width="262dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/border_circle"/>
+            android:layout_marginTop="5dp"
+            android:background="@drawable/border_circle" />
 
         <ImageButton
             android:id="@+id/btn_salvar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/spinner_unidade"
+            android:layout_marginTop="5dp"
             android:background="@drawable/borda_botao"
             android:gravity="center"
-            android:layout_marginTop="5dp"
             android:src="@drawable/button_cadastrar" />
 
         <TextView

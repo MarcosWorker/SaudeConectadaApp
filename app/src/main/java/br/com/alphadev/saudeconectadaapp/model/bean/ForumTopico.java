@@ -12,8 +12,17 @@ public class ForumTopico {
     private String topico;
     private int idprofissional;
     private int qtdRespostas;
+    private String data;
 
     public ForumTopico() {
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public int getId() {
