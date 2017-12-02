@@ -170,7 +170,7 @@
             android:layout_height="39.58dp"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:text="Obs: Caso não possua os dados acima, favor entre em contato com seu conselho."
+            android:text="Obs: Caso seu conselho não esteja listado à cima, favor entre em contato com o mesmo."
             android:textColor="@color/colorTextBlack"
             android:textSize="17dp"
             android:textStyle="italic" />
