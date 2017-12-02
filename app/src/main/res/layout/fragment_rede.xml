@@ -71,12 +71,6 @@
             android:gravity="center"
             android:layout_marginTop="5dp"
             android:src="@drawable/button_rede" />
-        <ListView
-            android:id="@+id/list_view_rede"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bt_buscar_rede"
-            android:padding="10dp"/>
 
     </LinearLayout>
 

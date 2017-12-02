@@ -26,10 +26,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
+import br.com.alphadev.saudeconectadaapp.flow.ListaRedeActivity;
 import br.com.alphadev.saudeconectadaapp.flow.RedeActivity;
 import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterItemRede;
 import br.com.alphadev.saudeconectadaapp.model.bean.Rede;
@@ -40,8 +42,6 @@ import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
  */
 public class RedeFragment extends Fragment {
 
-    private ListView listView = null;
-    private AdapterItemRede adapter = null;
     private List<Rede> redes = null;
     private List<Rede> listaBusca = null;
     private String cidade;
@@ -59,10 +59,9 @@ public class RedeFragment extends Fragment {
     private ArrayAdapter<String> adapterBairro = null;
     private String url = null;
     private Rede rede = null;
-    private Bundle bundleLat = null;
-    private Bundle bundleLog = null;
     private View view = null;
     private ImageButton buttonBuscarRede = null;
+    private Intent intent=null;
 
 
     public RedeFragment() {
@@ -88,29 +87,6 @@ public class RedeFragment extends Fragment {
         }
 
         return view;
-    }
-
-    private void carregalista(final List<Rede> redes) {
-        listView = (ListView) view.findViewById(R.id.list_view_rede);
-
-        adapter = new AdapterItemRede(redes, getActivity());
-
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Rede redeClick = new Rede();
-                redeClick = redes.get(position);
-                Intent intent = new Intent(getActivity(), RedeActivity.class);
-                bundleLat = new Bundle();
-                bundleLat.putDouble("latitude", redeClick.getLatitude());
-                bundleLog = new Bundle();
-                bundleLog.putDouble("longitude", redeClick.getLongitude());
-                intent.putExtras(bundleLat);
-                intent.putExtras(bundleLog);
-                startActivity(intent);
-            }
-        });
     }
 
     private class Post extends AsyncTask<String, Void, String> {
@@ -406,9 +382,6 @@ public class RedeFragment extends Fragment {
                         }
                     });
 
-
-
-
                     buttonBuscarRede = (ImageButton) view.findViewById(R.id.bt_buscar_rede);
                     buttonBuscarRede.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -416,7 +389,9 @@ public class RedeFragment extends Fragment {
                             if (listaBusca.isEmpty()) {
                                 Toast.makeText(getContext(), "Não foram encontrados profissionais nessa busca", Toast.LENGTH_SHORT).show();
                             } else {
-                                carregalista(listaBusca);
+                                intent =new Intent(getContext(), ListaRedeActivity.class);
+                                intent.putExtra("listaRede", (Serializable) listaBusca);
+                                startActivity(intent);
                             }
                         }
                     });

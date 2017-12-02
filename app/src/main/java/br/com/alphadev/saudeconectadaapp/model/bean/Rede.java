@@ -1,6 +1,8 @@
 package br.com.alphadev.saudeconectadaapp.model.bean;
 
-public class Rede {
+import java.io.Serializable;
+
+public class Rede implements Serializable{
     private int id;
     private String unidade;
     private String endereco;
