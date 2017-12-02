@@ -51,6 +51,7 @@ public class ListaRedeActivity extends AppCompatActivity {
                 bundleLat.putDouble("latitude", redeClick.getLatitude());
                 bundleLog = new Bundle();
                 bundleLog.putDouble("longitude", redeClick.getLongitude());
+                intent.putExtra("unidade",redeClick.getUnidade());
                 intent.putExtras(bundleLat);
                 intent.putExtras(bundleLog);
                 startActivity(intent);

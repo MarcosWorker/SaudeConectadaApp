@@ -63,7 +63,8 @@
         <activity android:name=".flow.AdicionaRespostaActivity" />
         <activity android:name=".flow.PerfilActivity" />
         <activity android:name=".flow.EditarPerfilActivity" />
-        <activity android:name=".flow.ListaRedeActivity"></activity>
+        <activity android:name=".flow.ListaRedeActivity" />
+        <activity android:name=".flow.PerfilRedeActivity"></activity>
     </application>
 
 </manifest>

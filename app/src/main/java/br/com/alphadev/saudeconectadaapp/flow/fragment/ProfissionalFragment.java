@@ -24,6 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class ProfissionalFragment extends Fragment {
     private String unidade;
     private String cidade;
     private List<Profissional> profissionaisWS;
+    private List<Profissional>listaEnviada;
     private List<String> especialidadeProfissionais;
     private List<String> unidadesProfissionais;
     private List<String> cidadesProfissionais;
@@ -50,8 +52,6 @@ public class ProfissionalFragment extends Fragment {
     private Spinner spinnerEspecialidade;
     private Spinner spinnerUnidade;
     private Spinner spinnerCidade;
-    private ArrayAdapter<String> arrayAdapter;
-    private ArrayAdapter<String> spinnerArrayAdapter;
     private ImageButton buscar;
     private Intent intent;
 
@@ -66,6 +66,7 @@ public class ProfissionalFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profissional, container, false);
         profissionaisWS = new ArrayList<>();
+        listaEnviada=new ArrayList<>();
 
         spinnerCidade = (Spinner) view.findViewById(R.id.spinner_cidade_profissional);
         spinnerUnidade = (Spinner) view.findViewById(R.id.spinner_unidade_profissional);
@@ -78,15 +79,16 @@ public class ProfissionalFragment extends Fragment {
 
                 try {
                     intent = new Intent(getActivity(), ListaProfissionaisActivity.class);
-                    ListaProfissionaisActivity.profissionais = new ArrayList<>();
-
+                    listaEnviada.clear();
                     for (int i = 0; profissionaisWS.size() > i; i++) {
                         if (profissionaisWS.get(i).getUnidade().contains(unidade) &&
                                 profissionaisWS.get(i).getEspecialidade().contains(especialidade) &&
                                 profissionaisWS.get(i).getCidade().contains(cidade)) {
-                            ListaProfissionaisActivity.profissionais.add(profissionaisWS.get(i));
+                            listaEnviada.add(profissionaisWS.get(i));
                         }
                     }
+
+                    intent.putExtra("listaProf",(Serializable)listaEnviada);
                     startActivity(intent);
 
                 } catch (Throwable throwable) {

@@ -1,6 +1,8 @@
 package br.com.alphadev.saudeconectadaapp.model.bean;
 
-public class Profissional {
+import java.io.Serializable;
+
+public class Profissional implements Serializable {
 
     private String id;
     private String nome;
@@ -98,5 +100,10 @@ public class Profissional {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    @Override
+    public String toString() {
+        return nome+"\n"+telefone;
     }
 }
