@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image">
+
+
+    <TextView
+        android:id="@+id/txt_profissional"
+        android:layout_width="145dp"
+        android:layout_height="25.3dp"
+        android:layout_marginTop="38.2dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:text="CONFIGURAÇÕES"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/linha"
+        android:layout_width="63.02dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2.4dp"
+        android:background="@color/colorTextBlack"
+        android:layout_below="@id/txt_profissional"/>
+
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/linha"
+        android:layout_marginEnd="37dp"
+        android:layout_marginTop="67dp"
+        android:text=""
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/switch1"
+        android:layout_below="@+id/switch1"
+        android:layout_marginTop="29dp"
+        android:text=""
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switch1"
+        android:layout_marginEnd="25dp"
+        android:layout_toStartOf="@+id/linha"
+        android:text="Notificações"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/switch2"
+        android:layout_alignStart="@+id/textView2"
+        android:text="Exibiri telefone para os usuarios"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
+</RelativeLayout>
