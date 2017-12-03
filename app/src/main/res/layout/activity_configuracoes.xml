@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/switch2"
         android:layout_alignStart="@+id/textView2"
-        android:text="Exibiri telefone para os usuarios"
+        android:text="Exibir seu telefone para os usuarios"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/colorTextBlack"
         android:textSize="18dp"
