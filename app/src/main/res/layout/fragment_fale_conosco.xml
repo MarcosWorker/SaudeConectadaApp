@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="10dp"
         android:background="@drawable/background_image">
 
         <TextView
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="25.1dp"
             android:layout_gravity="center"
-            android:layout_marginTop="38.2dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-condensed"
             android:text="FALE CONOSCO"
             android:textColor="@color/colorTextBlack"
