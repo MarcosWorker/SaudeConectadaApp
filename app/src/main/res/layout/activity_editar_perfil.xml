@@ -82,7 +82,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:background="@drawable/borda_botao"
-            android:src="@drawable/botao_editar" />
+            android:src="@drawable/button_salvar" />
 
     </RelativeLayout>
 </RelativeLayout>
