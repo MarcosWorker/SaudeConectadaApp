@@ -143,7 +143,7 @@ public class ProfissionalFragment extends Fragment {
                     cidadesProfissionais = new ArrayList<>();
                     especialidadeProfissionais = new ArrayList<>();
                     unidadesProfissionais = new ArrayList<>();
-                    cidadesProfissionais.add("cidade");
+                    cidadesProfissionais.add("Cidade");
                     especialidadeProfissionais.add("Especialidade");
                     unidadesProfissionais.add("Unidade");
 

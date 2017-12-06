@@ -91,8 +91,13 @@ public class MenuActivity extends AppCompatActivity {
                 intent = new Intent(MenuActivity.this, PerfilActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_sobre:
+                intent = new Intent(MenuActivity.this, SobreActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.action_settings:
-                Toast.makeText(this, "Ainda estamos trabalhando nisso", Toast.LENGTH_SHORT).show();
+                intent=new Intent(MenuActivity.this,ConfiguracoesActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.action_sair:
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);

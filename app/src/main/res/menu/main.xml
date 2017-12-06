@@ -24,6 +24,11 @@
                 android:title="@string/fale_conosco"
                 app:showAsAction="never" />
             <item
+                android:id="@+id/action_sobre"
+                android:orderInCategory="100"
+                android:title="Sobre"
+                app:showAsAction="never" />
+            <item
             android:id="@+id/action_sair"
             android:orderInCategory="100"
             android:title="Sair"

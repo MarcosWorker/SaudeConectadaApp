@@ -130,6 +130,7 @@ public class RedeFragment extends Fragment {
                     cidades = new ArrayList<>();
                     cidades.add("Cidade");
                     bairros = new ArrayList<>();
+                    bairros.add("Bairro");
                     listaBusca = new ArrayList<>();
 
                     JSONArray json = new JSONArray(resultado);

@@ -64,7 +64,9 @@
         <activity android:name=".flow.PerfilActivity" />
         <activity android:name=".flow.EditarPerfilActivity" />
         <activity android:name=".flow.ListaRedeActivity" />
-        <activity android:name=".flow.PerfilRedeActivity"></activity>
+        <activity android:name=".flow.PerfilRedeActivity" />
+        <activity android:name=".flow.ConfiguracoesActivity" />
+        <activity android:name=".flow.SobreActivity"></activity>
     </application>
 
 </manifest>
