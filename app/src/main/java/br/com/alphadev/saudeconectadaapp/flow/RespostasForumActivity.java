@@ -116,6 +116,7 @@ public class RespostasForumActivity extends AppCompatActivity {
                         forumResposta.setIdprofissional(jsonObject.getInt("id_profissional"));
                         forumResposta.setIdtopico(jsonObject.getInt("id_topico"));
                         forumResposta.setData(jsonObject.getString("data_postagem"));
+                        forumResposta.setCriadoPor(jsonObject.getString("nome_profissional"));
                         if (idtopico == forumResposta.getIdtopico()) {
                             respostas.add(forumResposta);
                         }
@@ -133,6 +134,9 @@ public class RespostasForumActivity extends AppCompatActivity {
                         tituloTopico.setText(bundle.getString("topico")+"\n"+
                         respostas.size()+" Respostas.");
                     }
+
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

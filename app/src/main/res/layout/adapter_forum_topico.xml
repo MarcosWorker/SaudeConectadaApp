@@ -33,5 +33,14 @@
         android:textColor="#999292"
         android:textSize="18dp"
         android:textStyle="normal" />
+    <TextView
+        android:id="@+id/criado_forum_topico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="texto"
+        android:textColor="#384ab3"
+        android:textSize="18dp"
+        android:textStyle="normal" />
 
 </LinearLayout>

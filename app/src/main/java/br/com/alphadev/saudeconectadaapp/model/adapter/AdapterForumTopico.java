@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
+import br.com.alphadev.saudeconectadaapp.flow.PerfilActivity;
 import br.com.alphadev.saudeconectadaapp.flow.RespostasForumActivity;
 import br.com.alphadev.saudeconectadaapp.model.bean.ForumTopico;
 
@@ -65,6 +66,15 @@ public class AdapterForumTopico extends RecyclerView.Adapter<AdapterForumTopico.
             }
         });
 
+        holder.tvCriadoPor.setText(topico.getCriadoPor());
+        holder.tvCriadoPor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(v.getContext(), PerfilActivity.class);
+                intent.putExtra("id_profissional",topico.getId());
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -83,6 +93,7 @@ public class AdapterForumTopico extends RecyclerView.Adapter<AdapterForumTopico.
         private TextView tvData;
         private TextView tvQtdRespostas;
         private LinearLayout item;
+        private TextView tvCriadoPor;
 
         public ViewHolder(View v) {
             super(v);
@@ -91,6 +102,7 @@ public class AdapterForumTopico extends RecyclerView.Adapter<AdapterForumTopico.
             tvTitulo = (TextView) v.findViewById(R.id.titulo_forum_topico);
             tvQtdRespostas = (TextView) v.findViewById(R.id.qtd_respostas_forum_topico);
             item = (LinearLayout) v.findViewById(R.id.item_topico_forum);
+            tvCriadoPor=(TextView)v.findViewById(R.id.criado_forum_topico);
         }
 
     }

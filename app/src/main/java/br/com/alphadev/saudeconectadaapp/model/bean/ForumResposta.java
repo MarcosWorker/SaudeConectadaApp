@@ -11,8 +11,17 @@ public class ForumResposta {
     private int idtopico;
     private int idprofissional;
     private String data;
+    private String criadoPor;
 
     public ForumResposta() {
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(String criadoPor) {
+        this.criadoPor = criadoPor;
     }
 
     public int getId() {
@@ -57,6 +66,6 @@ public class ForumResposta {
 
     @Override
     public String toString() {
-        return data+"\n\n"+resposta+"\n";
+        return data + "\n\n" + resposta + "\n\n" + criadoPor;
     }
 }

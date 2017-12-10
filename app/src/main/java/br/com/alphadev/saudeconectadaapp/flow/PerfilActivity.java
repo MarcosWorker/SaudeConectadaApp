@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import br.com.alphadev.saudeconectadaapp.R;
-import br.com.alphadev.saudeconectadaapp.model.bean.Profissional;
 import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
 public class PerfilActivity extends AppCompatActivity {
@@ -33,31 +31,34 @@ public class PerfilActivity extends AppCompatActivity {
     private ImageButton btEditar;
     private String url = null;
     private Intent intent;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        tvnome=(TextView)findViewById(R.id.nome_perfil);
-        tvespecialidade=(TextView)findViewById(R.id.especialidade_perfil);
-        tvlocal=(TextView)findViewById(R.id.endereco_perfil);
-        tvfone=(TextView)findViewById(R.id.fone_perfil);
-        tvemail=(TextView)findViewById(R.id.email_perfil);
-        btEditar=(ImageButton)findViewById(R.id.btn_editar);
+        bundle = getIntent().getExtras();
+
+        tvnome = (TextView) findViewById(R.id.nome_perfil);
+        tvespecialidade = (TextView) findViewById(R.id.especialidade_perfil);
+        tvlocal = (TextView) findViewById(R.id.endereco_perfil);
+        tvfone = (TextView) findViewById(R.id.fone_perfil);
+        tvemail = (TextView) findViewById(R.id.email_perfil);
+        btEditar = (ImageButton) findViewById(R.id.btn_editar);
 
         btEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tvnome.getText().equals("")||tvnome==null){
+                if (tvnome.getText().equals("") || tvnome == null) {
                     Toast.makeText(PerfilActivity.this, "Impossível editar dados vazios", Toast.LENGTH_SHORT).show();
-                }else {
-                    intent=new Intent(PerfilActivity.this,EditarPerfilActivity.class);
-                    intent.putExtra("nome",tvnome.getText());
-                    intent.putExtra("especialidade",tvespecialidade.getText());
-                    intent.putExtra("fone",tvfone.getText());
-                    intent.putExtra("email",tvemail.getText());
-                    intent.putExtra("local",tvlocal.getText());
+                } else {
+                    intent = new Intent(PerfilActivity.this, EditarPerfilActivity.class);
+                    intent.putExtra("nome", tvnome.getText());
+                    intent.putExtra("especialidade", tvespecialidade.getText());
+                    intent.putExtra("fone", tvfone.getText());
+                    intent.putExtra("email", tvemail.getText());
+                    intent.putExtra("local", tvlocal.getText());
                     startActivity(intent);
                 }
 
@@ -71,7 +72,11 @@ public class PerfilActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         //se existe conexão
         if (networkInfo != null && networkInfo.isConnected()) {
-            url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaBuscar/" + prefs.getString("idLogado", null);
+            if (bundle.getString("id_profissional") != null) {
+                url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaBuscar/" + bundle.getString("id_profissional");
+            } else {
+                url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaBuscar/" + prefs.getString("idLogado", null);
+            }
             new Get().execute(url);
 
         } else {
@@ -109,12 +114,12 @@ public class PerfilActivity extends AppCompatActivity {
                 try {
                     JSONArray json = new JSONArray(resultado);
 
-                        JSONObject jsonObject = (JSONObject) json.get(0);
-                        tvnome.setText(jsonObject.getString("nome"));
-                        tvespecialidade.setText(jsonObject.getString("especialidade"));
-                        tvemail.setText(jsonObject.getString("email"));
-                        tvfone.setText(jsonObject.getString("telefone"));
-                        tvlocal.setText(jsonObject.getString("unidade"));
+                    JSONObject jsonObject = (JSONObject) json.get(0);
+                    tvnome.setText(jsonObject.getString("nome"));
+                    tvespecialidade.setText(jsonObject.getString("especialidade"));
+                    tvemail.setText(jsonObject.getString("email"));
+                    tvfone.setText(jsonObject.getString("telefone"));
+                    tvlocal.setText(jsonObject.getString("unidade"));
 
                 } catch (Exception ex) {
                     Log.d("Erro - ", ex.getMessage());

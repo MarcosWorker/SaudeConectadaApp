@@ -1,7 +1,5 @@
 package br.com.alphadev.saudeconectadaapp.model.bean;
 
-import java.util.List;
-
 /**
  * Created by Marco on 22/09/2017.
  */
@@ -13,8 +11,17 @@ public class ForumTopico {
     private int idprofissional;
     private int qtdRespostas;
     private String data;
+    private String criadoPor;
 
     public ForumTopico() {
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(String criadoPor) {
+        this.criadoPor = criadoPor;
     }
 
     public String getData() {
