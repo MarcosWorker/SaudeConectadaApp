@@ -49,8 +49,12 @@ public class AdapterItemNoticia extends BaseAdapter {
         TextView texto = (TextView)
                 view.findViewById(R.id.noticia_adpt_noticia);
 
+        TextView data=(TextView)
+                view.findViewById(R.id.data_adpt_noticia);
+
         titulo.setText(noticia.getTitulo());
         texto.setText(noticia.getTexto());
+        data.setText(noticia.getData());
 
         return view;
     }

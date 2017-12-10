@@ -99,7 +99,8 @@ public class NoticiaFragment extends Fragment {
                         String titulo = jsonObject.getString("titulo");
                         String link = jsonObject.getString("link");
                         String descricao = jsonObject.getString("descricao");
-                        noticia = new Noticia(titulo, link, descricao);
+                        String data = jsonObject.getString("dataPostagem");
+                        noticia = new Noticia(titulo, link, descricao,data);
                         noticias.add(noticia);
                     }
                     listView = (ListView) view.findViewById(R.id.list_view_noticia);

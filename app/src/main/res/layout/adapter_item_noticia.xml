@@ -25,4 +25,14 @@
         android:textSize="18dp"
         android:textStyle="normal" />
 
+    <TextView
+        android:id="@+id/data_adpt_noticia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="texto"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="18dp"
+        android:textStyle="normal" />
+
 </LinearLayout>
