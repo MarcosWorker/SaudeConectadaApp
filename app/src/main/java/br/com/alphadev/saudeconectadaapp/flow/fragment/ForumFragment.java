@@ -24,11 +24,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
 import br.com.alphadev.saudeconectadaapp.flow.AdicionarTopicoActivity;
+import br.com.alphadev.saudeconectadaapp.flow.MenuActivity;
 import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterForumTopico;
 import br.com.alphadev.saudeconectadaapp.model.bean.ForumTopico;
 import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
@@ -54,6 +56,8 @@ public class ForumFragment extends Fragment {
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager mLayoutManager = null;
     private AdapterForumTopico adapterForumTopico = null;
+    private String parametroDelete = null;
+    private String url = null;
 
 
     @Override
@@ -139,24 +143,23 @@ public class ForumFragment extends Fragment {
                         forumTopico.setIdprofissional(jsonTopico.getInt("id_profissional"));
                         forumTopico.setData(jsonTopico.getString("data_postagem"));
                         forumTopico.setCriadoPor(jsonTopico.getString("nome_profissional"));
-                            for (int r = 0; r < jsonRespostas.length(); r++) {
-                                JSONObject jsonResposta = (JSONObject) jsonRespostas.get(r);
-                                if (jsonResposta.getInt("id_topico") == forumTopico.getId()) {
-                                    qtdR++;
-                                }
+                        for (int r = 0; r < jsonRespostas.length(); r++) {
+                            JSONObject jsonResposta = (JSONObject) jsonRespostas.get(r);
+                            if (jsonResposta.getInt("id_topico") == forumTopico.getId()) {
+                                qtdR++;
                             }
+                        }
                         forumTopico.setQtdRespostas(qtdR);
                         topicos.add(forumTopico);
-                        qtdR=0;
+                        qtdR = 0;
                     }
 
                     recyclerView = (RecyclerView) view.findViewById(R.id.list_forum);
 
-                    adapterForumTopico = new AdapterForumTopico(topicos);
+                    adapterForumTopico = new AdapterForumTopico(topicos,getContext());
                     mLayoutManager = new LinearLayoutManager(view.getContext());
                     recyclerView.setLayoutManager(mLayoutManager);
                     recyclerView.setAdapter(adapterForumTopico);
-//                    Log.d("QTD", String.valueOf(topicos.size()));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -169,6 +172,5 @@ public class ForumFragment extends Fragment {
 
         }
     }
-
 
 }

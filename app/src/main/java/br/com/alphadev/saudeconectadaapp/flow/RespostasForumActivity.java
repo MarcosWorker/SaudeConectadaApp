@@ -1,7 +1,9 @@
 package br.com.alphadev.saudeconectadaapp.flow;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alphadev.saudeconectadaapp.R;
+import br.com.alphadev.saudeconectadaapp.model.adapter.AdapterForumTopico;
 import br.com.alphadev.saudeconectadaapp.model.bean.ForumResposta;
 import br.com.alphadev.saudeconectadaapp.model.conexao.ConexaoWeb;
 
@@ -135,6 +139,65 @@ public class RespostasForumActivity extends AppCompatActivity {
                         respostas.size()+" Respostas.");
                     }
 
+                    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> arg0, final View view,
+                                                       int pos, long id) {
+
+                            final ForumResposta forumResposta=respostas.get(pos);
+
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+                            alertDialogBuilder.setMessage("Oque você deseja fazer?");
+                            alertDialogBuilder.setPositiveButton("Editar Resposta",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface arg0, int arg1) {
+                                            Toast.makeText(view.getContext(), "Em manutenção", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                            alertDialogBuilder.setNegativeButton("Excluir Resposta", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ConnectivityManager connMgr = (ConnectivityManager) view.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                                    //se existe conexão
+                                    if (networkInfo != null && networkInfo.isConnected()) {
+                                        url = "http://saudeconectada.eletrocontroll.com.br/forumWbSv/processaRemoverResposta/"+String.valueOf(forumResposta.getId());
+                                        new RespostasForumActivity.PostDeleteResposta().execute(url);
+                                        respostas.remove(forumResposta);
+                                        listView = (ListView) findViewById(R.id.list_respostas_forum);
+
+                                        adapter = new ArrayAdapter<ForumResposta>(RespostasForumActivity.this,
+                                                android.R.layout.simple_list_item_1, respostas);
+
+                                        listView.setAdapter(adapter);
+
+                                    } else {
+                                        Toast.makeText(view.getContext(), "verifique sua internet", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+
+                            alertDialogBuilder.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
+
+
+
+                            return true;
+                        }
+                    });
+
+
+
 
 
                 } catch (JSONException e) {
@@ -143,6 +206,39 @@ public class RespostasForumActivity extends AppCompatActivity {
 
             } else {
                 Toast.makeText(RespostasForumActivity.this, "erro no carregamento da lista", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    private class PostDeleteResposta extends AsyncTask<String, Void, String> {
+
+        ProgressDialog load;
+
+        @Override
+        protected void onPreExecute() {
+            // create dialog here
+            load = new ProgressDialog(RespostasForumActivity.this);
+            load.setMessage("Por favor espere ...");
+            load.show();
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+            String resultado = null;
+            resultado = ConexaoWeb.getDados(urls[0]);
+            return resultado;
+        }
+
+        @Override
+        protected void onPostExecute(String resultado) {
+
+            if (resultado != null && resultado.contains("true")) {
+                load.dismiss();
+                Toast.makeText(RespostasForumActivity.this, "Resposta deletada com sucesso", Toast.LENGTH_LONG).show();
+
+            } else {
+                load.dismiss();
+                Toast.makeText(RespostasForumActivity.this, "erro para deletar resposta", Toast.LENGTH_LONG).show();
             }
         }
     }

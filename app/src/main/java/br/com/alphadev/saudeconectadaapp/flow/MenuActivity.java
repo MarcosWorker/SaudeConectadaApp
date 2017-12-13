@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import br.com.alphadev.saudeconectadaapp.R;
 import br.com.alphadev.saudeconectadaapp.flow.fragment.FaleConoscoFragment;
@@ -38,14 +37,10 @@ public class MenuActivity extends AppCompatActivity {
         myToolbar.setTitle("");
         setSupportActionBar(myToolbar);
 
-        fm = getFragmentManager();
-
-        fm.beginTransaction().replace(R.id.content, new VideoFragment()).commit();
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        carregaTelaInicial();
 
         SharedPreferences prefs = getSharedPreferences("login", 0);
-       // Toast.makeText(this, "Meu id é " + prefs.getString("idLogado", null), Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Meu id é " + prefs.getString("idLogado", null), Toast.LENGTH_SHORT).show();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -96,7 +91,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_settings:
-                intent=new Intent(MenuActivity.this,ConfiguracoesActivity.class);
+                intent = new Intent(MenuActivity.this, ConfiguracoesActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.action_sair:
@@ -134,4 +129,11 @@ public class MenuActivity extends AppCompatActivity {
         return true;
     }
 
+    public void carregaTelaInicial() {
+        fm = getFragmentManager();
+
+        fm.beginTransaction().replace(R.id.content, new VideoFragment()).commit();
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
 }
