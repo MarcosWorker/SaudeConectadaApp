@@ -64,6 +64,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (networkInfo != null && networkInfo.isConnected()) {
                         url = "http://saudeconectada.eletrocontroll.com.br/ProfissionalWbSv/processaListar";
                         new Get().execute(url);
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Verifique sua internet", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
